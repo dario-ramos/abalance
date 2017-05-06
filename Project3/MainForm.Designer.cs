@@ -1,4 +1,4 @@
-﻿namespace Project3
+﻿namespace RitEduClient
 {
     partial class MainForm
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.Search = new System.Windows.Forms.GroupBox();
+            this.orgName = new System.Windows.Forms.TextBox();
             this.resetButton = new System.Windows.Forms.Button();
             this.CountyComboBox = new System.Windows.Forms.ComboBox();
             this.searchButton = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.organizationName = new System.Windows.Forms.Label();
             this.organizationType = new System.Windows.Forms.Label();
             this.orgTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.orgName = new System.Windows.Forms.TextBox();
             this.Search.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,13 @@
             this.Search.TabIndex = 11;
             this.Search.TabStop = false;
             this.Search.Text = "Search";
+            // 
+            // orgName
+            // 
+            this.orgName.Location = new System.Drawing.Point(182, 67);
+            this.orgName.Name = "orgName";
+            this.orgName.Size = new System.Drawing.Size(121, 20);
+            this.orgName.TabIndex = 20;
             // 
             // resetButton
             // 
@@ -91,7 +98,7 @@
             this.searchButton.TabIndex = 8;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // searchZip
             // 
@@ -163,21 +170,15 @@
             this.orgTypeComboBox.TabIndex = 7;
             this.orgTypeComboBox.Text = "-- select any value --";
             // 
-            // orgName
-            // 
-            this.orgName.Location = new System.Drawing.Point(182, 67);
-            this.orgName.Name = "orgName";
-            this.orgName.Size = new System.Drawing.Size(121, 20);
-            this.orgName.TabIndex = 20;
-            // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 405);
             this.Controls.Add(this.Search);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Search.ResumeLayout(false);
             this.Search.PerformLayout();
             this.ResumeLayout(false);

@@ -11,16 +11,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace Project3
+namespace RitEduClient
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IRitEduClientView
     {
+        private RitEduClientPresenter _presenter;
+
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            _presenter = new RitEduClientPresenter();
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             List<string> beers = new List<string>();
             string uri = "http://simon.ist.rit.edu:8080/BeerService/resources/Services/Beers";
