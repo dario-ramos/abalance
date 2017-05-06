@@ -13,9 +13,9 @@ using System.Xml;
 
 namespace Project3
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace Project3
             }
             catch (Exception ex)
             {
-                Console.Write("Error");
+                Console.Write("Error: " + ex);
             }
         }
     }
