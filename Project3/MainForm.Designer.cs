@@ -177,7 +177,7 @@
             this.ClientSize = new System.Drawing.Size(649, 405);
             this.Controls.Add(this.Search);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "RitEdu client";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Search.ResumeLayout(false);
             this.Search.PerformLayout();

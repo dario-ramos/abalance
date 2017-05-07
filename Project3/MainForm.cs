@@ -25,11 +25,13 @@ namespace RitEduClient
         private void MainForm_Load(object sender, EventArgs e)
         {
             _presenter = new RitEduClientPresenter();
+            OrganizationTypeList orgTypes = _presenter.GetOrganizationTypes().Result;
+            int j = 0;
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            List<string> beers = new List<string>();
+            /*List<string> beers = new List<string>();
             string uri = "http://simon.ist.rit.edu:8080/BeerService/resources/Services/Beers";
             //"http://simon.ist.rit.edu:8080/Services/resources/application.wadl";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
@@ -54,7 +56,7 @@ namespace RitEduClient
             catch (Exception ex)
             {
                 Console.Write("Error: " + ex);
-            }
+            }*/
         }
     }
 
