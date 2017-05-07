@@ -40,7 +40,7 @@
             this.state = new System.Windows.Forms.Label();
             this.organizationName = new System.Windows.Forms.Label();
             this.organizationType = new System.Windows.Forms.Label();
-            this.orgTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.cmbOrgType = new System.Windows.Forms.ComboBox();
             this.Search.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +57,7 @@
             this.Search.Controls.Add(this.state);
             this.Search.Controls.Add(this.organizationName);
             this.Search.Controls.Add(this.organizationType);
-            this.Search.Controls.Add(this.orgTypeComboBox);
+            this.Search.Controls.Add(this.cmbOrgType);
             this.Search.Location = new System.Drawing.Point(27, 23);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(478, 263);
@@ -161,14 +161,14 @@
             this.organizationType.TabIndex = 9;
             this.organizationType.Text = "Organization Type";
             // 
-            // orgTypeComboBox
+            // cmbOrgType
             // 
-            this.orgTypeComboBox.FormattingEnabled = true;
-            this.orgTypeComboBox.Location = new System.Drawing.Point(182, 27);
-            this.orgTypeComboBox.Name = "orgTypeComboBox";
-            this.orgTypeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.orgTypeComboBox.TabIndex = 7;
-            this.orgTypeComboBox.Text = "-- select any value --";
+            this.cmbOrgType.FormattingEnabled = true;
+            this.cmbOrgType.Location = new System.Drawing.Point(182, 27);
+            this.cmbOrgType.Name = "cmbOrgType";
+            this.cmbOrgType.Size = new System.Drawing.Size(121, 21);
+            this.cmbOrgType.TabIndex = 7;
+            this.cmbOrgType.Text = "-- select any value --";
             // 
             // MainForm
             // 
@@ -199,7 +199,7 @@
         private System.Windows.Forms.Label state;
         private System.Windows.Forms.Label organizationName;
         private System.Windows.Forms.Label organizationType;
-        private System.Windows.Forms.ComboBox orgTypeComboBox;
+        private System.Windows.Forms.ComboBox cmbOrgType;
     }
 }
 

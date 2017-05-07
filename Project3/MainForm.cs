@@ -26,7 +26,10 @@ namespace RitEduClient
         {
             _presenter = new RitEduClientPresenter();
             OrganizationTypeList orgTypes = _presenter.GetOrganizationTypes().Result;
-            int j = 0;
+            foreach(OrganizationType orgType in orgTypes.OrganizationTypes)
+            {
+                cmbOrgType.Items.Add(orgType);
+            }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)

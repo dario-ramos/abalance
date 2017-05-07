@@ -1,19 +1,28 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 
 namespace RitEduClient
 {
-    public class OrganizationType
+    [Serializable()]
+    [XmlRoot("row")]
+    public sealed class OrganizationType
     {
         [XmlElement("typeId")]
-        int Id { get; set; }
+        public int Id { get; set; }
         [XmlElement("type")]
-        string Name { get; set; }
+        public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 
+    [Serializable()]
     [XmlRoot("data")]
-    public class OrganizationTypeList
+    public sealed class OrganizationTypeList
     {
-        [XmlArrayItem("row", Type = typeof(OrganizationType))]
-        OrganizationType[] Rows { get; set; }
+        [XmlElement("row")]
+        public OrganizationType[] OrganizationTypes { get; set; }
     }
 }
