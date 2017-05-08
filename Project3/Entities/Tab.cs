@@ -5,9 +5,9 @@ namespace RitEduClient.Entities
 {
     [Serializable()]
     [XmlRoot("row")]
-    public class City
+    public sealed class Tab
     {
-        [XmlElement("city")]
+        [XmlElement("Tab")]
         public string Name { get; set; }
 
         public override string ToString()
@@ -18,9 +18,9 @@ namespace RitEduClient.Entities
 
     [Serializable()]
     [XmlRoot("data")]
-    public sealed class CityList
+    public sealed class TabList
     {
         [XmlElement("row")]
-        public City[] Cities { get; set; }
+        public Tab[] Tabs { get; set; }
     }
 }

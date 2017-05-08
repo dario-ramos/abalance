@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Net.Http;
 using System.Text;
@@ -14,6 +15,8 @@ namespace RitEduClient
     {
         private const string ESD_SERVICE_URL = @"http://simon.ist.rit.edu:8080/Services/resources/";
         private HttpClient _httpClient;
+        private OrganizationList _lastSearchResults;
+        private static int _pageSize = 10; //TODO Make configurable
 
         public RitEduClientModel()
         {
@@ -39,6 +42,40 @@ namespace RitEduClient
         public async Task<StateList> GetStates()
         {
             return await GetEntityList<StateList>("ESD/States");
+        }
+
+        public async Task SearchOrganizations(OrganizationType searchOrgType, string searchOrgName, State searchState,
+                                              City searchCity, string searchCounty, string searchZip)
+        {
+            string queryString = "ESD/Organizations?" +
+                "type=" + (searchOrgType != null? searchOrgType.Name : "" ) + "&" +
+                "name=" + searchOrgName + "&" +
+                "town=" + (searchCity != null? searchCity.Name : "") + "&" +
+                "state=" + (searchState !=null? searchState.Name : "") + "&" +
+                "zip=" + searchZip + "&" +
+                "county=" + searchCounty;
+            _lastSearchResults = await GetEntityList<OrganizationList>(queryString);
+            int j = 0;
+        }
+
+        public DataTable GetResultsPage(int pageIndex)
+        {
+            var pageContents = new DataTable();
+            pageContents.Columns.AddRange(new DataColumn[]
+            {
+                new DataColumn("Type"), new DataColumn("Name"), new DataColumn("City"),
+                new DataColumn("Zip"), new DataColumn("County"), new DataColumn("State"),
+            });
+            for(int i=0; i<_pageSize && (pageIndex * _pageSize + i < _lastSearchResults.Organizations.Length); i++)
+            {
+                Organization org = _lastSearchResults.Organizations[pageIndex * _pageSize + i];
+                pageContents.Rows.Add
+                (
+                    org.Type, org.Name, org.City,
+                    org.Zip, org.CountyName, org.State
+                );
+            }
+            return pageContents;
         }
 
         private async Task<T> GetEntityList<T>(string url)

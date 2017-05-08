@@ -7,10 +7,12 @@ namespace RitEduClient
     class RitEduClientPresenter
     {
         private RitEduClientModel _model;
+        private IRitEduClientView _view;
 
-        public RitEduClientPresenter()
+        public RitEduClientPresenter(IRitEduClientView view)
         {
-            _model = new RitEduClientModel(); 
+            _model = new RitEduClientModel();
+            _view = view;
         }
 
         public async Task<CityList> GetCities(State state)
@@ -33,5 +35,15 @@ namespace RitEduClient
             return await _model.GetStates();
         }
 
+        public async Task SearchOrganizations(OrganizationType searchOrgType, string searchOrgName, State searchState,
+                                        City searchCity, string searchCounty, string searchZip)
+        {
+            await _model.SearchOrganizations
+            (
+                searchOrgType, searchOrgName, searchState,
+                searchCity, searchCounty, searchZip
+            );
+            _view.ShowResults(1, _model.GetResultsPage(1));
+        }
     }
 }

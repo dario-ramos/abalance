@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace RitEduClient
+namespace RitEduClient.Entities
 {
     [Serializable()]
     [XmlRoot("row")]
