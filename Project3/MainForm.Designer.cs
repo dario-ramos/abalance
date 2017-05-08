@@ -72,7 +72,7 @@
             this.txtCounty.Location = new System.Drawing.Point(116, 142);
             this.txtCounty.Name = "txtCounty";
             this.txtCounty.Size = new System.Drawing.Size(121, 20);
-            this.txtCounty.TabIndex = 25;
+            this.txtCounty.TabIndex = 50;
             // 
             // label1
             // 
@@ -90,7 +90,7 @@
             this.cmbCity.Location = new System.Drawing.Point(254, 107);
             this.cmbCity.Name = "cmbCity";
             this.cmbCity.Size = new System.Drawing.Size(121, 21);
-            this.cmbCity.TabIndex = 23;
+            this.cmbCity.TabIndex = 40;
             this.cmbCity.Text = "-- select any value --";
             // 
             // txtOrgName
@@ -103,9 +103,9 @@
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(265, 213);
-            this.btnReset.Name = "resetButton";
+            this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(97, 32);
-            this.btnReset.TabIndex = 19;
+            this.btnReset.TabIndex = 80;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -115,7 +115,7 @@
             this.searchButton.Location = new System.Drawing.Point(129, 213);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(97, 32);
-            this.searchButton.TabIndex = 8;
+            this.searchButton.TabIndex = 70;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
@@ -125,7 +125,7 @@
             this.txtZip.Location = new System.Drawing.Point(116, 176);
             this.txtZip.Name = "txtZip";
             this.txtZip.Size = new System.Drawing.Size(121, 20);
-            this.txtZip.TabIndex = 17;
+            this.txtZip.TabIndex = 60;
             // 
             // Zip
             // 
@@ -142,7 +142,7 @@
             this.cmbState.Location = new System.Drawing.Point(116, 106);
             this.cmbState.Name = "cmbState";
             this.cmbState.Size = new System.Drawing.Size(121, 21);
-            this.cmbState.TabIndex = 13;
+            this.cmbState.TabIndex = 30;
             this.cmbState.Text = "-- select any value --";
             this.cmbState.SelectedIndexChanged += new System.EventHandler(this.cmbState_SelectedIndexChanged);
             // 
@@ -179,7 +179,7 @@
             this.cmbOrgType.Location = new System.Drawing.Point(116, 27);
             this.cmbOrgType.Name = "cmbOrgType";
             this.cmbOrgType.Size = new System.Drawing.Size(121, 21);
-            this.cmbOrgType.TabIndex = 7;
+            this.cmbOrgType.TabIndex = 10;
             this.cmbOrgType.Text = "-- select any value --";
             // 
             // MainForm
