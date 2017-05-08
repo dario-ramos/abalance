@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using RitEduClient.Entities;
 
 namespace RitEduClient
 {
@@ -18,6 +19,16 @@ namespace RitEduClient
         {
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri(ESD_SERVICE_URL);
+        }
+
+        public async Task<CityList> GetCities(State state)
+        {
+            return await GetEntityList<CityList>("ESD/Cities?state=" + state.Name);
+        }
+
+        public async Task<CountyList> GetCounties(State state)
+        {
+            return await GetEntityList<CountyList>("ESD/Counties?state=" + state.Name);
         }
 
         public async Task<OrganizationTypeList> GetOrganizationTypes()
