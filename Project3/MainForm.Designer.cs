@@ -36,7 +36,7 @@
             this.searchZip = new System.Windows.Forms.TextBox();
             this.Zip = new System.Windows.Forms.Label();
             this.county = new System.Windows.Forms.Label();
-            this.StateComboBox = new System.Windows.Forms.ComboBox();
+            this.cmbState = new System.Windows.Forms.ComboBox();
             this.state = new System.Windows.Forms.Label();
             this.organizationName = new System.Windows.Forms.Label();
             this.organizationType = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.Search.Controls.Add(this.searchZip);
             this.Search.Controls.Add(this.Zip);
             this.Search.Controls.Add(this.county);
-            this.Search.Controls.Add(this.StateComboBox);
+            this.Search.Controls.Add(this.cmbState);
             this.Search.Controls.Add(this.state);
             this.Search.Controls.Add(this.organizationName);
             this.Search.Controls.Add(this.organizationType);
@@ -125,14 +125,14 @@
             this.county.TabIndex = 14;
             this.county.Text = "County";
             // 
-            // StateComboBox
+            // cmbState
             // 
-            this.StateComboBox.FormattingEnabled = true;
-            this.StateComboBox.Location = new System.Drawing.Point(182, 106);
-            this.StateComboBox.Name = "StateComboBox";
-            this.StateComboBox.Size = new System.Drawing.Size(121, 21);
-            this.StateComboBox.TabIndex = 13;
-            this.StateComboBox.Text = "-- select any value --";
+            this.cmbState.FormattingEnabled = true;
+            this.cmbState.Location = new System.Drawing.Point(182, 106);
+            this.cmbState.Name = "cmbState";
+            this.cmbState.Size = new System.Drawing.Size(121, 21);
+            this.cmbState.TabIndex = 13;
+            this.cmbState.Text = "-- select any value --";
             // 
             // state
             // 
@@ -195,7 +195,7 @@
         private System.Windows.Forms.TextBox searchZip;
         private System.Windows.Forms.Label Zip;
         private System.Windows.Forms.Label county;
-        private System.Windows.Forms.ComboBox StateComboBox;
+        private System.Windows.Forms.ComboBox cmbState;
         private System.Windows.Forms.Label state;
         private System.Windows.Forms.Label organizationName;
         private System.Windows.Forms.Label organizationType;

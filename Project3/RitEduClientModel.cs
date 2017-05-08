@@ -22,14 +22,24 @@ namespace RitEduClient
 
         public async Task<OrganizationTypeList> GetOrganizationTypes()
         {
-            var response = _httpClient.GetAsync("ESD/OrgTypes").Result;
+            return await GetEntityList<OrganizationTypeList>("ESD/OrgTypes");
+        }
+
+        public async Task<StateList> GetStates()
+        {
+            return await GetEntityList<StateList>("ESD/States");
+        }
+
+        private async Task<T> GetEntityList<T>(string url)
+        {
+            var response = _httpClient.GetAsync(url).Result;
             string responseContent = await response.Content.ReadAsStringAsync();
             var readBuffer = Encoding.UTF8.GetBytes(responseContent);
             using (var stream = new MemoryStream(readBuffer))
             {
                 XmlReader reader = XmlReader.Create(stream);
-                var serializer = new XmlSerializer(typeof(OrganizationTypeList));
-                return (OrganizationTypeList)serializer.Deserialize(reader);
+                var serializer = new XmlSerializer(typeof(T));
+                return (T)serializer.Deserialize(reader);
             }
         }
     }

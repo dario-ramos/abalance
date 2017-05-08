@@ -30,6 +30,11 @@ namespace RitEduClient
             {
                 cmbOrgType.Items.Add(orgType);
             }
+            StateList states = _presenter.GetStates().Result;
+            foreach (State state in states.States)
+            {
+                cmbState.Items.Add(state);
+            }
         }
 
         private void SearchButton_Click(object sender, EventArgs e)

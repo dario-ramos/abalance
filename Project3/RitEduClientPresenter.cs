@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace RitEduClient
 {
@@ -14,6 +15,11 @@ namespace RitEduClient
         public async Task<OrganizationTypeList> GetOrganizationTypes()
         {
             return await _model.GetOrganizationTypes();
+        }
+
+        public async Task<StateList> GetStates()
+        {
+            return await _model.GetStates();
         }
     }
 }
