@@ -22,13 +22,15 @@ namespace RitEduClient
         public MainForm()
         {
             InitializeComponent();
+            SetResultsInfo("");
             _currentResultsPageIndex = 0;
         }
 
-        public void ShowResults(int pageIndex, DataTable pageContents)
+        public void ShowResults(int pageIndex, string pageInfo, DataTable pageContents)
         {
             _currentResultsPageIndex = pageIndex;
             dgvResults.DataSource = pageContents;
+            SetResultsInfo(pageInfo);
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -48,6 +50,8 @@ namespace RitEduClient
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
+            dgvResults.DataSource = null;
+            SetResultsInfo("Searching...");
             OrganizationType searchOrgType = (OrganizationType)cmbOrgType.SelectedItem;
             string searchOrgName = txtOrgName.Text;
             State searchState = (State)cmbState.SelectedItem;
@@ -100,6 +104,10 @@ namespace RitEduClient
             cmbCity.Enabled = true;
         }
 
+        private void SetResultsInfo(string info)
+        {
+            lblResultsInfo.Text = info;
+        }
     }
 
 }

@@ -43,7 +43,14 @@ namespace RitEduClient
                 searchOrgType, searchOrgName, searchState,
                 searchCity, searchCounty, searchZip
             );
-            _view.ShowResults(1, _model.GetResultsPage(1));
+            _view.ShowResults(1, GetPageInfo(1), _model.GetResultsPage(1));
+        }
+
+        private string GetPageInfo(int pageIndex)
+        {
+            return "Showing " + ((pageIndex-1) * _model.PageSize + 1).ToString() +
+                   " to " + (pageIndex * _model.PageSize).ToString() +
+                   " of " + _model.ResultsCount + " entries";
         }
     }
 }

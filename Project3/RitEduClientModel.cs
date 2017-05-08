@@ -18,6 +18,24 @@ namespace RitEduClient
         private OrganizationList _lastSearchResults;
         private static int _pageSize = 10; //TODO Make configurable
 
+        public int PageSize {
+            get
+            {
+                return _pageSize;
+            }
+            private set
+            {
+                _pageSize = value;
+            }
+        }
+
+        public int ResultsCount {
+            get
+            {
+                return _lastSearchResults.Organizations.Length;
+            }
+        }
+
         public RitEduClientModel()
         {
             _httpClient = new HttpClient();
@@ -55,7 +73,6 @@ namespace RitEduClient
                 "zip=" + searchZip + "&" +
                 "county=" + searchCounty;
             _lastSearchResults = await GetEntityList<OrganizationList>(queryString);
-            int j = 0;
         }
 
         public DataTable GetResultsPage(int pageIndex)

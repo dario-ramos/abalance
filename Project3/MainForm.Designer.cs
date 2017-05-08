@@ -45,6 +45,7 @@
             this.cmbOrgType = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvResults = new System.Windows.Forms.DataGridView();
+            this.lblResultsInfo = new System.Windows.Forms.Label();
             this.Search.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
@@ -190,6 +191,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblResultsInfo);
             this.groupBox1.Controls.Add(this.dgvResults);
             this.groupBox1.Location = new System.Drawing.Point(27, 161);
             this.groupBox1.Name = "groupBox1";
@@ -201,7 +203,7 @@
             // dgvResults
             // 
             this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Location = new System.Drawing.Point(10, 28);
+            this.dgvResults.Location = new System.Drawing.Point(9, 20);
             this.dgvResults.Name = "dgvResults";
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -213,6 +215,15 @@
             this.dgvResults.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvResults.Size = new System.Drawing.Size(750, 291);
             this.dgvResults.TabIndex = 0;
+            // 
+            // lblResultsInfo
+            // 
+            this.lblResultsInfo.AutoSize = true;
+            this.lblResultsInfo.Location = new System.Drawing.Point(7, 323);
+            this.lblResultsInfo.Name = "lblResultsInfo";
+            this.lblResultsInfo.Size = new System.Drawing.Size(316, 13);
+            this.lblResultsInfo.TabIndex = 1;
+            this.lblResultsInfo.Text = "Showing {{iPageStart}} to {{iPageEnd}} of {{resultsCount}} entries";
             // 
             // MainForm
             // 
@@ -228,6 +239,7 @@
             this.Search.ResumeLayout(false);
             this.Search.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.ResumeLayout(false);
 
@@ -251,10 +263,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvResults;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn NameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CityColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CountryColumn;
+        private System.Windows.Forms.Label lblResultsInfo;
     }
 }
 
