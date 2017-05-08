@@ -45,6 +45,10 @@ namespace RitEduClient
 
         private void cmbState_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cmbState.SelectedIndex < 0)
+            {
+                return;
+            }
             cmbCity.Enabled = false;
             State selectedState = (State)cmbState.SelectedItem;
             CityList stateCities = _presenter.GetCities(selectedState).Result;
@@ -57,6 +61,20 @@ namespace RitEduClient
             cmbCity.Enabled = true;
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            cmbOrgType.SelectedIndex = -1;
+            cmbOrgType.Text = "-- select any value --";
+            cmbState.SelectedIndex = -1;
+            cmbState.Text = "-- select any value --";
+            cmbCity.SelectedIndex = -1;
+            cmbCity.Items.Clear();
+            cmbCity.Enabled = false;
+            cmbCity.Text = "-- select any value --";
+            txtOrgName.Text = "";
+            txtCounty.Text = "";
+            txtZip.Text = "";
+        }
     }
 
 

@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cmbCity = new System.Windows.Forms.ComboBox();
             this.txtOrgName = new System.Windows.Forms.TextBox();
-            this.resetButton = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.txtZip = new System.Windows.Forms.TextBox();
             this.Zip = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.Search.Controls.Add(this.label1);
             this.Search.Controls.Add(this.cmbCity);
             this.Search.Controls.Add(this.txtOrgName);
-            this.Search.Controls.Add(this.resetButton);
+            this.Search.Controls.Add(this.btnReset);
             this.Search.Controls.Add(this.searchButton);
             this.Search.Controls.Add(this.txtZip);
             this.Search.Controls.Add(this.Zip);
@@ -100,14 +100,15 @@
             this.txtOrgName.Size = new System.Drawing.Size(121, 20);
             this.txtOrgName.TabIndex = 20;
             // 
-            // resetButton
+            // btnReset
             // 
-            this.resetButton.Location = new System.Drawing.Point(265, 213);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(97, 32);
-            this.resetButton.TabIndex = 19;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = true;
+            this.btnReset.Location = new System.Drawing.Point(265, 213);
+            this.btnReset.Name = "resetButton";
+            this.btnReset.Size = new System.Drawing.Size(97, 32);
+            this.btnReset.TabIndex = 19;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // searchButton
             // 
@@ -201,7 +202,7 @@
 
         private System.Windows.Forms.GroupBox Search;
         private System.Windows.Forms.TextBox txtOrgName;
-        private System.Windows.Forms.Button resetButton;
+        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.TextBox txtZip;
         private System.Windows.Forms.Label Zip;
