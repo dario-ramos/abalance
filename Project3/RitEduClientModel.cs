@@ -92,9 +92,9 @@ namespace RitEduClient
                 new DataColumn("Type"), new DataColumn("Name"), new DataColumn("City"),
                 new DataColumn("Zip"), new DataColumn("County"), new DataColumn("State"),
             });
-            for(int i=0; i<_pageSize && (pageIndex * _pageSize + i < _lastSearchResults.Organizations.Length); i++)
+            for(int i=0; i<_pageSize && ((pageIndex-1) * _pageSize + i < _lastSearchResults.Organizations.Length); i++)
             {
-                Organization org = _lastSearchResults.Organizations[pageIndex * _pageSize + i];
+                Organization org = _lastSearchResults.Organizations[(pageIndex-1) * _pageSize + i];
                 pageContents.Rows.Add
                 (
                     org.Type, org.Name, org.City,
