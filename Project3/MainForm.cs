@@ -40,32 +40,7 @@ namespace RitEduClient
             {
                 lnkFirstPage.Visible = (pageIndex != 1);
                 lnkPreviousPage.Visible = (pageIndex != 1);
-                lnkPageA.Enabled = lnkPageB.Enabled = lnkPageC.Enabled = lnkPageD.Enabled = lnkPageE.Enabled = true;
-                lnkPageA.Visible = true;
-                if(pageIndex == 1)
-                {
-                    lnkPageA.Enabled = false;
-                }
-                lnkPageB.Visible = true;
-                if (pageIndex == 2)
-                {
-                    lnkPageB.Enabled = false;
-                }
-                lnkPageC.Visible = (resultsCount > 2 * pageSize);
-                if (pageIndex == 3)
-                {
-                    lnkPageC.Enabled = false;
-                }
-                lnkPageD.Visible = (resultsCount > 3 * pageSize);
-                if (pageIndex == 4)
-                {
-                    lnkPageD.Enabled = false;
-                }
-                lnkPageE.Visible = (resultsCount > 4 * pageSize);
-                if (pageIndex == 5)
-                {
-                    lnkPageE.Enabled = false;
-                }
+                SetPageLinks(pageIndex, pageSize, resultsCount);
                 int pageCount = (int) Math.Ceiling((decimal) resultsCount / pageSize);
                 lnkNextPage.Visible = ( pageIndex != pageCount );
                 lnkLastPage.Visible = (pageIndex != pageCount);
@@ -173,6 +148,36 @@ namespace RitEduClient
         private void lnkPageE_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ShowResults(5, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(5));
+        }
+
+        private void SetPageLinks(int pageIndex, int pageSize, int resultsCount)
+        {
+            lnkPageA.Enabled = lnkPageB.Enabled = lnkPageC.Enabled = lnkPageD.Enabled = lnkPageE.Enabled = true;
+            lnkPageA.Visible = true;
+            if (pageIndex == 1)
+            {
+                lnkPageA.Enabled = false;
+            }
+            lnkPageB.Visible = true;
+            if (pageIndex == 2)
+            {
+                lnkPageB.Enabled = false;
+            }
+            lnkPageC.Visible = (resultsCount > 2 * pageSize);
+            if (pageIndex == 3)
+            {
+                lnkPageC.Enabled = false;
+            }
+            lnkPageD.Visible = (resultsCount > 3 * pageSize);
+            if (pageIndex == 4)
+            {
+                lnkPageD.Enabled = false;
+            }
+            lnkPageE.Visible = (resultsCount > 4 * pageSize);
+            if (pageIndex == 5)
+            {
+                lnkPageE.Enabled = false;
+            }
         }
 
         private void SetResultsInfo(string info)
