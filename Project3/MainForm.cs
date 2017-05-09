@@ -125,6 +125,11 @@ namespace RitEduClient
             cmbCity.Enabled = true;
         }
 
+        private void lnkFirstPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowResults(1, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(1));
+        }
+
         private void lnkPageA_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             ShowResults(1, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(1));
