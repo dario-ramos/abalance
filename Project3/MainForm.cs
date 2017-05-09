@@ -155,6 +155,11 @@ namespace RitEduClient
             ShowResults(5, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(5));
         }
 
+        private void lnkPreviousPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowResults(_currentResultsPageIndex-1, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(_currentResultsPageIndex - 1));
+        }
+
         private void SetPageLinks(int pageIndex, int pageSize, int resultsCount)
         {
             lnkPageA.Enabled = lnkPageB.Enabled = lnkPageC.Enabled = lnkPageD.Enabled = lnkPageE.Enabled = true;
