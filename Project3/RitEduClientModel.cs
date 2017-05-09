@@ -81,7 +81,13 @@ namespace RitEduClient
                 "zip=" + searchZip + "&" +
                 "county=" + searchCounty;
             _lastSearchResults = await GetEntityList<OrganizationList>(queryString);
-            Array.Sort(_lastSearchResults.Organizations, new OrganizationComparerByType());
+            if (_lastSearchResults.Organizations != null &&_lastSearchResults.Organizations.Length > 0)
+            {
+                Array.Sort(_lastSearchResults.Organizations, new OrganizationComparerByType());
+            }else
+            {
+                _lastSearchResults.Organizations = new Organization[0];
+            }
         }
 
         public DataTable GetResultsPage(int pageIndex)

@@ -85,8 +85,8 @@ namespace RitEduClient
 
         private string GetPageDescription(int pageIndex, int pageSize, int resultsCount)
         {
-            return "Showing " + ((pageIndex - 1) * pageSize + 1).ToString() +
-                   " to " + (pageIndex * pageSize).ToString() +
+            return "Showing " + (Math.Min((pageIndex - 1) * pageSize + 1, resultsCount)).ToString() +
+                   " to " + (Math.Min(pageIndex * pageSize, resultsCount)).ToString() +
                    " of " + resultsCount + " entries";
         }
 
