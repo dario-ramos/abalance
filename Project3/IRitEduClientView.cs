@@ -4,6 +4,6 @@ namespace RitEduClient
 {
     public interface IRitEduClientView
     {
-        void ShowResults(int pageIndex, string pageInfo, DataTable pageContents);
+        void ShowResults(int pageIndex, int pageSize, int resultsCount, DataTable pageContents);
     }
 }

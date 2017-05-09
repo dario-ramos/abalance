@@ -11,7 +11,7 @@ using RitEduClient.Entities;
 
 namespace RitEduClient
 {
-    class RitEduClientModel
+    internal class RitEduClientModel
     {
         private const string ESD_SERVICE_URL = @"http://simon.ist.rit.edu:8080/Services/resources/";
         private HttpClient _httpClient;
@@ -73,6 +73,7 @@ namespace RitEduClient
                 "zip=" + searchZip + "&" +
                 "county=" + searchCounty;
             _lastSearchResults = await GetEntityList<OrganizationList>(queryString);
+            Array.Sort(_lastSearchResults.Organizations, new OrganizationComparerByType());
         }
 
         public DataTable GetResultsPage(int pageIndex)

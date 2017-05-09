@@ -26,11 +26,50 @@ namespace RitEduClient
             _currentResultsPageIndex = 0;
         }
 
-        public void ShowResults(int pageIndex, string pageInfo, DataTable pageContents)
+        public void ShowResults(int pageIndex, int pageSize, int resultsCount, DataTable pageContents)
         {
             _currentResultsPageIndex = pageIndex;
             dgvResults.DataSource = pageContents;
-            SetResultsInfo(pageInfo);
+            foreach(DataGridViewColumn col in dgvResults.Columns)
+            {
+                col.SortMode = DataGridViewColumnSortMode.Programmatic;
+            }
+            dgvResults.Columns["Type"].HeaderCell.SortGlyphDirection = SortOrder.Ascending;
+            SetResultsInfo(GetPageDescription(pageIndex, pageSize, resultsCount));
+            if(resultsCount > pageSize)
+            {
+                lnkFirstPage.Visible = (pageIndex != 1);
+                lnkPreviousPage.Visible = (pageIndex != 1);
+                lnkPageA.Enabled = lnkPageB.Enabled = lnkPageC.Enabled = lnkPageD.Enabled = lnkPageE.Enabled = true;
+                lnkPageA.Visible = true;
+                if(pageIndex == 1)
+                {
+                    lnkPageA.Enabled = false;
+                }
+                lnkPageB.Visible = true;
+                if (pageIndex == 2)
+                {
+                    lnkPageB.Enabled = false;
+                }
+                lnkPageC.Visible = (resultsCount > 2 * pageSize);
+                if (pageIndex == 3)
+                {
+                    lnkPageC.Enabled = false;
+                }
+                lnkPageD.Visible = (resultsCount > 3 * pageSize);
+                if (pageIndex == 4)
+                {
+                    lnkPageD.Enabled = false;
+                }
+                lnkPageE.Visible = (resultsCount > 4 * pageSize);
+                if (pageIndex == 5)
+                {
+                    lnkPageE.Enabled = false;
+                }
+                int pageCount = (int) Math.Ceiling((decimal) resultsCount / pageSize);
+                lnkNextPage.Visible = ( pageIndex != pageCount );
+                lnkLastPage.Visible = (pageIndex != pageCount);
+            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -63,6 +102,13 @@ namespace RitEduClient
                 searchOrgType, searchOrgName, searchState,
                 searchCity, searchCounty, searchZip
             );
+        }
+
+        private string GetPageDescription(int pageIndex, int pageSize, int resultsCount)
+        {
+            return "Showing " + ((pageIndex - 1) * pageSize + 1).ToString() +
+                   " to " + (pageIndex * pageSize).ToString() +
+                   " of " + resultsCount + " entries";
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -104,10 +150,36 @@ namespace RitEduClient
             cmbCity.Enabled = true;
         }
 
+        private void lnkPageA_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowResults(1, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(1));
+        }
+
+        private void lnkPageB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowResults(2, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(2));
+        }
+
+        private void lnkPageC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowResults(3, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(3));
+        }
+
+        private void lnkPageD_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowResults(4, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(4));
+        }
+
+        private void lnkPageE_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowResults(5, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(5));
+        }
+
         private void SetResultsInfo(string info)
         {
             lblResultsInfo.Text = info;
         }
+
     }
 
 }

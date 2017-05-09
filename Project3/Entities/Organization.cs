@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Xml.Serialization;
 
 namespace RitEduClient.Entities
@@ -30,6 +31,7 @@ namespace RitEduClient.Entities
 
         [XmlElement("zip")]
         public string Zip { get; set; }
+
     }
 
     [Serializable()]
@@ -38,5 +40,26 @@ namespace RitEduClient.Entities
     {
         [XmlElement("row")]
         public Organization[] Organizations { get; set; }
+    }
+
+    public sealed class OrganizationComparerByType : IComparer
+    {
+        public int Compare(object x, object y)
+        {
+            if(x == null && y == null){
+                return 0;
+            }
+            if(x == null)
+            {
+                return -1;
+            }
+            if(y == null)
+            {
+                return 1;
+            }
+            Organization orgX = x as Organization;
+            Organization orgY = y as Organization;
+            return string.Compare(orgX.Type, orgY.Type);
+        }
     }
 }
