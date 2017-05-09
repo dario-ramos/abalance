@@ -15,4 +15,9 @@ namespace RitEduClient
         COUNTY,
         STATE
     }
+
+    enum TabName
+    {
+        GENERAL
+    }
 }

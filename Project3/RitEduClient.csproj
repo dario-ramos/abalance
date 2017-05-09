@@ -48,6 +48,7 @@
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\County.cs" />
     <Compile Include="Entities\Organization.cs" />
+    <Compile Include="Entities\OrganizationGeneralInfo.cs" />
     <Compile Include="Entities\Tab.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="IRitEduClientView.cs" />

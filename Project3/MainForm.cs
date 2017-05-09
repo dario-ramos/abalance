@@ -26,6 +26,21 @@ namespace RitEduClient
             _currentResultsPageIndex = 0;
         }
 
+        public void ClearTabs()
+        {
+            ClearGeneralTab();
+        }
+
+        public void LoadGeneralTab(OrganizationGeneralInfo generalInfo)
+        {
+            lblGeneralInfoName.Text = generalInfo.Name;
+            lblGeneralInfoDescription.Text = generalInfo.Description;
+            lblGeneralInfoEmail.Text = generalInfo.Email;
+            lblGeneralInfoWebsite.Text = generalInfo.Website;
+            lblGeneralInfoNumMem.Text = generalInfo.NumMembers;
+            lblGeneralInfoNumCalls.Text = generalInfo.NumCalls;
+        }
+
         public void ShowResults(int pageIndex, int pageSize, int resultsCount, DataTable pageContents)
         {
             _currentResultsPageIndex = pageIndex;
@@ -35,6 +50,7 @@ namespace RitEduClient
                 col.SortMode = DataGridViewColumnSortMode.Programmatic;
             }
             dgvResults.Columns["Type"].HeaderCell.SortGlyphDirection = SortOrder.Ascending;
+            dgvResults.Columns["Id"].Visible = false;
             SetResultsInfo(GetPageDescription(pageIndex, pageSize, resultsCount));
             if(resultsCount > pageSize)
             {
@@ -49,21 +65,6 @@ namespace RitEduClient
                 lnkPreviousPage.Visible = lnkNextPage.Visible = false;
                 lnkPageA.Visible = lnkPageB.Visible = lnkPageC.Visible = lnkPageD.Visible = lnkPageE.Visible = false;
             }
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            cmbOrgType.SelectedIndex = -1;
-            cmbOrgType.Text = "-- select any value --";
-            cmbState.SelectedIndex = -1;
-            cmbState.Text = "-- select any value --";
-            cmbCity.SelectedIndex = -1;
-            cmbCity.Items.Clear();
-            cmbCity.Enabled = false;
-            cmbCity.Text = "-- select any value --";
-            txtOrgName.Text = "";
-            txtCounty.Text = "";
-            txtZip.Text = "";
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -90,6 +91,31 @@ namespace RitEduClient
                    " of " + resultsCount + " entries";
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            cmbOrgType.SelectedIndex = -1;
+            cmbOrgType.Text = "-- select any value --";
+            cmbState.SelectedIndex = -1;
+            cmbState.Text = "-- select any value --";
+            cmbCity.SelectedIndex = -1;
+            cmbCity.Items.Clear();
+            cmbCity.Enabled = false;
+            cmbCity.Text = "-- select any value --";
+            txtOrgName.Text = "";
+            txtCounty.Text = "";
+            txtZip.Text = "";
+        }
+
+        private void ClearGeneralTab()
+        {
+            lblGeneralInfoName.Text = "";
+            lblGeneralInfoDescription.Text = "";
+            lblGeneralInfoEmail.Text = "";
+            lblGeneralInfoWebsite.Text = "";
+            lblGeneralInfoNumMem.Text = "";
+            lblGeneralInfoNumCalls.Text = "";
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             _presenter = new RitEduClientPresenter(this);
@@ -103,12 +129,6 @@ namespace RitEduClient
             {
                 cmbState.Items.Add(state);
             }
-        }
-
-        private void cmbOrgType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //OrganizationType selectedOrgType = (OrganizationType)cmbOrgType.SelectedItem;
-            //TabList tabs = _presenter.GetTabs(selectedOrgType);
         }
 
         private void cmbState_SelectedIndexChanged(object sender, EventArgs e)
@@ -127,6 +147,15 @@ namespace RitEduClient
             }
             cmbCity.Text = "-- select any value --";
             cmbCity.Enabled = true;
+        }
+
+        private void dgvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dgvResults.Columns[e.ColumnIndex].Name == "Name")
+            {
+                int orgId = int.Parse(dgvResults.Rows[e.RowIndex].Cells["Id"].Value.ToString());
+                _presenter.LoadTabs(orgId).Wait();
+            }
         }
 
         private void lnkFirstPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

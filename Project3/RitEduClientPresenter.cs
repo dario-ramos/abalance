@@ -59,6 +59,20 @@ namespace RitEduClient
             return await _model.GetStates();
         }
 
+        public async Task LoadTabs(int orgId)
+        {
+            _view.ClearTabs();
+            TabList tabs = await _model.GetTabs(orgId);
+            foreach(Tab tab in tabs.Tabs)
+            {
+                if(tab.Name.ToUpper() == Enum.GetName(typeof(TabName), TabName.GENERAL))
+                {
+                    OrganizationGeneralInfo generalInfo = await _model.GetOrganizationGeneralInfo(orgId);
+                    _view.LoadGeneralTab(generalInfo);
+                }
+            }
+        }
+
         public async Task SearchOrganizations(OrganizationType searchOrgType, string searchOrgName, State searchState,
                                         City searchCity, string searchCounty, string searchZip)
         {

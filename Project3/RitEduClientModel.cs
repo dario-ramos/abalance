@@ -52,22 +52,32 @@ namespace RitEduClient
 
         public async Task<CityList> GetCities(State state)
         {
-            return await GetEntityList<CityList>("ESD/Cities?state=" + state.Name);
+            return await GetEntity<CityList>("ESD/Cities?state=" + state.Name);
         }
 
         public async Task<CountyList> GetCounties(State state)
         {
-            return await GetEntityList<CountyList>("ESD/Counties?state=" + state.Name);
+            return await GetEntity<CountyList>("ESD/Counties?state=" + state.Name);
+        }
+
+        public async Task<OrganizationGeneralInfo> GetOrganizationGeneralInfo(int orgId)
+        {
+            return await GetEntity<OrganizationGeneralInfo>("ESD/" + orgId + "/General");
         }
 
         public async Task<OrganizationTypeList> GetOrganizationTypes()
         {
-            return await GetEntityList<OrganizationTypeList>("ESD/OrgTypes");
+            return await GetEntity<OrganizationTypeList>("ESD/OrgTypes");
         }
 
         public async Task<StateList> GetStates()
         {
-            return await GetEntityList<StateList>("ESD/States");
+            return await GetEntity<StateList>("ESD/States");
+        }
+
+        public async Task<TabList> GetTabs(int orgId)
+        {
+            return await GetEntity<TabList>("ESD/Application/Tabs?orgId=" + orgId);
         }
 
         public async Task SearchOrganizations(OrganizationType searchOrgType, string searchOrgName, State searchState,
@@ -80,7 +90,7 @@ namespace RitEduClient
                 "state=" + (searchState !=null? searchState.Name : "") + "&" +
                 "zip=" + searchZip + "&" +
                 "county=" + searchCounty;
-            _lastSearchResults = await GetEntityList<OrganizationList>(queryString);
+            _lastSearchResults = await GetEntity<OrganizationList>(queryString);
             if (_lastSearchResults.Organizations != null &&_lastSearchResults.Organizations.Length > 0)
             {
                 Array.Sort(_lastSearchResults.Organizations, new OrganizationComparerByType());
@@ -97,6 +107,7 @@ namespace RitEduClient
             {
                 new DataColumn("Type"), new DataColumn("Name"), new DataColumn("City"),
                 new DataColumn("Zip"), new DataColumn("County"), new DataColumn("State"),
+                new DataColumn("Id")
             });
             for(int i=0; i<_pageSize && ((pageIndex-1) * _pageSize + i < _lastSearchResults.Organizations.Length); i++)
             {
@@ -104,13 +115,14 @@ namespace RitEduClient
                 pageContents.Rows.Add
                 (
                     org.Type, org.Name, org.City,
-                    org.Zip, org.CountyName, org.State
+                    org.Zip, org.CountyName, org.State,
+                    org.Id
                 );
             }
             return pageContents;
         }
 
-        private async Task<T> GetEntityList<T>(string url)
+        private async Task<T> GetEntity<T>(string url)
         {
             var response = _httpClient.GetAsync(url).Result;
             string responseContent = await response.Content.ReadAsStringAsync();
