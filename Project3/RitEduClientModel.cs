@@ -18,6 +18,14 @@ namespace RitEduClient
         private OrganizationList _lastSearchResults;
         private static int _pageSize = 10; //TODO Make configurable
 
+        public int PageCount
+        {
+            get
+            {
+                return (int)Math.Ceiling((decimal)ResultsCount / PageSize);
+            }
+        }
+
         public int PageSize {
             get
             {

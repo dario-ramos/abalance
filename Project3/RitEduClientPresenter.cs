@@ -16,6 +16,14 @@ namespace RitEduClient
             _view = view;
         }
 
+        public int PageCount
+        {
+            get
+            {
+                return _model.PageCount;
+            }
+        }
+
         public int PageSize {
             get
             {

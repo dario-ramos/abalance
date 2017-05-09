@@ -41,9 +41,13 @@ namespace RitEduClient
                 lnkFirstPage.Visible = (pageIndex != 1);
                 lnkPreviousPage.Visible = (pageIndex != 1);
                 SetPageLinks(pageIndex, pageSize, resultsCount);
-                int pageCount = (int) Math.Ceiling((decimal) resultsCount / pageSize);
-                lnkNextPage.Visible = ( pageIndex != pageCount );
-                lnkLastPage.Visible = (pageIndex != pageCount);
+                lnkNextPage.Visible = (pageIndex != _presenter.PageCount);
+                lnkLastPage.Visible = (pageIndex != _presenter.PageCount);
+            }else
+            {
+                lnkFirstPage.Visible = lnkLastPage.Visible = false;
+                lnkPreviousPage.Visible = lnkNextPage.Visible = false;
+                lnkPageA.Visible = lnkPageB.Visible = lnkPageC.Visible = lnkPageD.Visible = lnkPageE.Visible = false;
             }
         }
 
@@ -130,29 +134,44 @@ namespace RitEduClient
             ShowResults(1, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(1));
         }
 
+        private void lnkLastPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowResults(_presenter.PageCount, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(_presenter.PageCount));
+        }
+
+        private void lnkNextPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ShowResults(_currentResultsPageIndex + 1, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(_currentResultsPageIndex + 1));
+        }
+
         private void lnkPageA_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ShowResults(1, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(1));
+            int pageIndex = int.Parse(lnkPageA.Text);
+            ShowResults(pageIndex, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(pageIndex));
         }
 
         private void lnkPageB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ShowResults(2, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(2));
+            int pageIndex = int.Parse(lnkPageB.Text);
+            ShowResults(pageIndex, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(pageIndex));
         }
 
         private void lnkPageC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ShowResults(3, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(3));
+            int pageIndex = int.Parse(lnkPageC.Text);
+            ShowResults(pageIndex, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(pageIndex));
         }
 
         private void lnkPageD_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ShowResults(4, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(4));
+            int pageIndex = int.Parse(lnkPageD.Text);
+            ShowResults(pageIndex, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(pageIndex));
         }
 
         private void lnkPageE_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ShowResults(5, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(5));
+            int pageIndex = int.Parse(lnkPageE.Text);
+            ShowResults(pageIndex, _presenter.PageSize, _presenter.ResultsCount, _presenter.GetResultsPage(pageIndex));
         }
 
         private void lnkPreviousPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -164,29 +183,51 @@ namespace RitEduClient
         {
             lnkPageA.Enabled = lnkPageB.Enabled = lnkPageC.Enabled = lnkPageD.Enabled = lnkPageE.Enabled = true;
             lnkPageA.Visible = true;
-            if (pageIndex == 1)
-            {
-                lnkPageA.Enabled = false;
-            }
             lnkPageB.Visible = true;
-            if (pageIndex == 2)
-            {
-                lnkPageB.Enabled = false;
-            }
             lnkPageC.Visible = (resultsCount > 2 * pageSize);
-            if (pageIndex == 3)
-            {
-                lnkPageC.Enabled = false;
-            }
             lnkPageD.Visible = (resultsCount > 3 * pageSize);
-            if (pageIndex == 4)
-            {
-                lnkPageD.Enabled = false;
-            }
             lnkPageE.Visible = (resultsCount > 4 * pageSize);
-            if (pageIndex == 5)
+            //Edge cases: 1, 2, last one and before last one
+            if(pageIndex == 1)
             {
+                lnkPageA.Text = "1";
+                lnkPageA.Enabled = false;
+                lnkPageB.Text = "2";
+                lnkPageC.Text = "3";
+                lnkPageD.Text = "4";
+                lnkPageE.Text = "5";
+            }else if(pageIndex == 2)
+            {
+                lnkPageA.Text = "1";
+                lnkPageB.Text = "2";
+                lnkPageB.Enabled = false;
+                lnkPageC.Text = "3";
+                lnkPageD.Text = "4";
+                lnkPageE.Text = "5";
+            }else if(pageIndex == _presenter.PageCount)
+            {
+                lnkPageA.Text = (_presenter.PageCount - 4).ToString();
+                lnkPageB.Text = (_presenter.PageCount - 3).ToString();
+                lnkPageC.Text = (_presenter.PageCount - 2).ToString();
+                lnkPageD.Text = (_presenter.PageCount - 1).ToString();
+                lnkPageE.Text = _presenter.PageCount.ToString();
                 lnkPageE.Enabled = false;
+            }else if(pageIndex == _presenter.PageCount-1)
+            {
+                lnkPageA.Text = (_presenter.PageCount - 4).ToString();
+                lnkPageB.Text = (_presenter.PageCount - 3).ToString();
+                lnkPageC.Text = (_presenter.PageCount - 2).ToString();
+                lnkPageD.Text = (_presenter.PageCount - 1).ToString();
+                lnkPageD.Enabled = false;
+                lnkPageE.Text = _presenter.PageCount.ToString();
+            }else //General case: center page selected
+            {
+                lnkPageA.Text = (pageIndex - 2).ToString();
+                lnkPageB.Text = (pageIndex - 1).ToString();
+                lnkPageC.Text = pageIndex.ToString();
+                lnkPageC.Enabled = false;
+                lnkPageD.Text = (pageIndex + 1).ToString();
+                lnkPageE.Text = (pageIndex + 2).ToString();
             }
         }
 
