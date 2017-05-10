@@ -17,10 +17,19 @@ namespace RitEduClient
             _orgId = orgId;
         }
 
-        public void LoadGeneralTab()
+        public void LoadGeneralTab(string orgName, string orgDesc, string orgEmail,
+                                   string orgWebsite, string orgNumMembers, string orgNumCalls)
         {
             TabPage generalTabPage = new TabPage("General");
-            GeneralTab generalTab = new GeneralTab();
+            GeneralTab generalTab = new GeneralTab()
+            {
+                OrganizationDescription = orgDesc,
+                OrganizationEmail = orgEmail,
+                OrganizationName = orgName,
+                OrganizationNumCalls = orgNumCalls,
+                OrganizationNumMembers = orgNumMembers,
+                OrganizationWebsite = orgWebsite
+            };
             generalTabPage.Controls.Add(generalTab);
             tabOrganization.TabPages.Add(generalTabPage);
         }
@@ -31,24 +40,5 @@ namespace RitEduClient
             _presenter.LoadTabs(_orgId).Wait();
         }
 
-        /*public void LoadGeneralTab(OrganizationGeneralInfo generalInfo)
-        {
-            lblGeneralInfoName.Text = generalInfo.Name;
-            lblGeneralInfoDescription.Text = generalInfo.Description;
-            lblGeneralInfoEmail.Text = generalInfo.Email;
-            lblGeneralInfoWebsite.Text = generalInfo.Website;
-            lblGeneralInfoNumMem.Text = generalInfo.NumMembers;
-            lblGeneralInfoNumCalls.Text = generalInfo.NumCalls;
-        }*/
-
-        //private void ClearGeneralTab()
-        //{
-        //    lblGeneralInfoName.Text = "";
-        //    lblGeneralInfoDescription.Text = "";
-        //    lblGeneralInfoEmail.Text = "";
-        //    lblGeneralInfoWebsite.Text = "";
-        //    lblGeneralInfoNumMem.Text = "";
-        //    lblGeneralInfoNumCalls.Text = "";
-        //}
     }
 }

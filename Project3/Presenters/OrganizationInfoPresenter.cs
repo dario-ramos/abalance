@@ -25,7 +25,11 @@ namespace RitEduClient
 
         private void OnGeneralTabLoaded(OrganizationGeneralInfo generalInfo)
         {
-            _view.LoadGeneralTab();
+            _view.LoadGeneralTab
+            (
+                generalInfo.Name, generalInfo.Description, generalInfo.Email,
+                generalInfo.Website, generalInfo.NumMembers, generalInfo.NumCalls
+            );
         }
 
     }

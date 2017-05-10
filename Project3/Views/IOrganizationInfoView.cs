@@ -8,6 +8,7 @@ namespace RitEduClient.Views
 {
     public interface IOrganizationInfoView
     {
-        void LoadGeneralTab();
+        void LoadGeneralTab(string orgName, string orgDesc, string orgEmail,
+                            string orgWebsite, string orgNumMembers, string orgNumCalls);
     }
 }
