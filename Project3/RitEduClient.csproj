@@ -49,22 +49,29 @@
     <Compile Include="IPagedDataProvider.cs" />
     <Compile Include="Models\Entities\City.cs" />
     <Compile Include="Models\Entities\County.cs" />
+    <Compile Include="Models\Entities\Location.cs" />
     <Compile Include="Models\Entities\Organization.cs" />
     <Compile Include="Models\Entities\OrganizationGeneralInfo.cs" />
     <Compile Include="Models\Entities\Tab.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="GeneralTab.cs">
+    <Compile Include="Views\GeneralTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GeneralTab.Designer.cs">
+    <Compile Include="Views\GeneralTab.Designer.cs">
       <DependentUpon>GeneralTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\OrganizationInfoModel.cs" />
-    <Compile Include="PagedDataGridView.cs">
+    <Compile Include="Views\LocationTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PagedDataGridView.Designer.cs">
+    <Compile Include="Views\LocationTab.Designer.cs">
+      <DependentUpon>LocationTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PagedDataGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PagedDataGridView.Designer.cs">
       <DependentUpon>PagedDataGridView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\IOrganizationInfoView.cs" />
@@ -88,10 +95,13 @@
     <Compile Include="Models\OrganizationSearchModel.cs" />
     <Compile Include="Presenters\OrganizationSearchPresenter.cs" />
     <Compile Include="Models\Entities\State.cs" />
-    <EmbeddedResource Include="GeneralTab.resx">
+    <EmbeddedResource Include="Views\GeneralTab.resx">
       <DependentUpon>GeneralTab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PagedDataGridView.resx">
+    <EmbeddedResource Include="Views\LocationTab.resx">
+      <DependentUpon>LocationTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PagedDataGridView.resx">
       <DependentUpon>PagedDataGridView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">

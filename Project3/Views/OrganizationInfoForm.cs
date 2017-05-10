@@ -34,6 +34,17 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(generalTabPage);
         }
 
+        public void LoadLocationTab()
+        {
+            TabPage locationTabPage = new TabPage("Location");
+            LocationTab locationTab = new LocationTab();
+            locationTab.PagedDataProvider = _presenter;
+            locationTab.PageSize = 10;
+            locationTab.SelectPage(1);
+            locationTabPage.Controls.Add(locationTab);
+            tabOrganization.TabPages.Add(locationTabPage);
+        }
+
         private void OrganizationInfoForm_Load(object sender, EventArgs e)
         {
             _presenter = new OrganizationInfoPresenter(this);

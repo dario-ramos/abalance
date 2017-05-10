@@ -1,4 +1,5 @@
 ﻿using RitEduClient.Entities;
+using RitEduClient.Models.Entities;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -28,6 +29,11 @@ namespace RitEduClient
         public async Task<CountyList> GetCounties(State state)
         {
             return await GetEntity<CountyList>("ESD/Counties?state=" + state.Name);
+        }
+
+        public async Task<LocationList> GetOrganizationLocations(int orgId)
+        {
+            return await GetEntity<LocationList>("ESD/" + orgId + "/Locations");
         }
 
         public async Task<OrganizationGeneralInfo> GetOrganizationGeneralInfo(int orgId)

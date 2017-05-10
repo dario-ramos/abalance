@@ -10,5 +10,7 @@ namespace RitEduClient.Views
     {
         void LoadGeneralTab(string orgName, string orgDesc, string orgEmail,
                             string orgWebsite, string orgNumMembers, string orgNumCalls);
+
+        void LoadLocationTab();
     }
 }

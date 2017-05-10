@@ -44,17 +44,21 @@
             // 
             // dgv
             // 
+            this.dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(15, 18);
+            this.dgv.Location = new System.Drawing.Point(15, 12);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(687, 344);
+            this.dgv.Size = new System.Drawing.Size(654, 296);
             this.dgv.TabIndex = 0;
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
             // lblPageDescription
             // 
+            this.lblPageDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblPageDescription.AutoSize = true;
-            this.lblPageDescription.Location = new System.Drawing.Point(12, 374);
+            this.lblPageDescription.Location = new System.Drawing.Point(12, 324);
             this.lblPageDescription.Name = "lblPageDescription";
             this.lblPageDescription.Size = new System.Drawing.Size(88, 13);
             this.lblPageDescription.TabIndex = 2;
@@ -62,8 +66,9 @@
             // 
             // lnkLastPage
             // 
+            this.lnkLastPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkLastPage.AutoSize = true;
-            this.lnkLastPage.Location = new System.Drawing.Point(676, 374);
+            this.lnkLastPage.Location = new System.Drawing.Point(636, 325);
             this.lnkLastPage.Name = "lnkLastPage";
             this.lnkLastPage.Size = new System.Drawing.Size(27, 13);
             this.lnkLastPage.TabIndex = 21;
@@ -74,8 +79,9 @@
             // 
             // lnkNextPage
             // 
+            this.lnkNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkNextPage.AutoSize = true;
-            this.lnkNextPage.Location = new System.Drawing.Point(641, 374);
+            this.lnkNextPage.Location = new System.Drawing.Point(601, 325);
             this.lnkNextPage.Name = "lnkNextPage";
             this.lnkNextPage.Size = new System.Drawing.Size(29, 13);
             this.lnkNextPage.TabIndex = 20;
@@ -86,7 +92,8 @@
             // 
             // lnkPageE
             // 
-            this.lnkPageE.Location = new System.Drawing.Point(601, 374);
+            this.lnkPageE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageE.Location = new System.Drawing.Point(562, 325);
             this.lnkPageE.Name = "lnkPageE";
             this.lnkPageE.Size = new System.Drawing.Size(35, 13);
             this.lnkPageE.TabIndex = 19;
@@ -98,7 +105,8 @@
             // 
             // lnkPageD
             // 
-            this.lnkPageD.Location = new System.Drawing.Point(564, 374);
+            this.lnkPageD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageD.Location = new System.Drawing.Point(523, 325);
             this.lnkPageD.Name = "lnkPageD";
             this.lnkPageD.Size = new System.Drawing.Size(35, 13);
             this.lnkPageD.TabIndex = 18;
@@ -110,7 +118,8 @@
             // 
             // lnkPageC
             // 
-            this.lnkPageC.Location = new System.Drawing.Point(525, 374);
+            this.lnkPageC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageC.Location = new System.Drawing.Point(483, 325);
             this.lnkPageC.Name = "lnkPageC";
             this.lnkPageC.Size = new System.Drawing.Size(35, 13);
             this.lnkPageC.TabIndex = 17;
@@ -122,7 +131,8 @@
             // 
             // lnkPageB
             // 
-            this.lnkPageB.Location = new System.Drawing.Point(486, 374);
+            this.lnkPageB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageB.Location = new System.Drawing.Point(443, 325);
             this.lnkPageB.Name = "lnkPageB";
             this.lnkPageB.Size = new System.Drawing.Size(35, 13);
             this.lnkPageB.TabIndex = 16;
@@ -134,7 +144,8 @@
             // 
             // lnkPageA
             // 
-            this.lnkPageA.Location = new System.Drawing.Point(450, 374);
+            this.lnkPageA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageA.Location = new System.Drawing.Point(403, 325);
             this.lnkPageA.Name = "lnkPageA";
             this.lnkPageA.Size = new System.Drawing.Size(35, 13);
             this.lnkPageA.TabIndex = 15;
@@ -146,8 +157,9 @@
             // 
             // lnkPreviousPage
             // 
+            this.lnkPreviousPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkPreviousPage.AutoSize = true;
-            this.lnkPreviousPage.Location = new System.Drawing.Point(400, 374);
+            this.lnkPreviousPage.Location = new System.Drawing.Point(355, 325);
             this.lnkPreviousPage.Name = "lnkPreviousPage";
             this.lnkPreviousPage.Size = new System.Drawing.Size(48, 13);
             this.lnkPreviousPage.TabIndex = 14;
@@ -158,8 +170,9 @@
             // 
             // lnkFirstPage
             // 
+            this.lnkFirstPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkFirstPage.AutoSize = true;
-            this.lnkFirstPage.Location = new System.Drawing.Point(364, 374);
+            this.lnkFirstPage.Location = new System.Drawing.Point(323, 325);
             this.lnkFirstPage.Name = "lnkFirstPage";
             this.lnkFirstPage.Size = new System.Drawing.Size(26, 13);
             this.lnkFirstPage.TabIndex = 13;
@@ -184,7 +197,7 @@
             this.Controls.Add(this.lblPageDescription);
             this.Controls.Add(this.dgv);
             this.Name = "PagedDataGridView";
-            this.Size = new System.Drawing.Size(722, 402);
+            this.Size = new System.Drawing.Size(688, 353);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
