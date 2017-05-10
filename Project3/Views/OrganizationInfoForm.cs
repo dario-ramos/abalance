@@ -58,6 +58,18 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(trainingTabPage);
         }
 
+        public void LoadTreatmentTab()
+        {
+            TabPage treatmentTabPage = new TabPage("Treatment");
+            TreatmentTab treatmentTab = new TreatmentTab();
+            treatmentTab.DataSetId = Constants.TREATMENT_DATASET_ID;
+            treatmentTab.PagedDataProvider = _presenter;
+            treatmentTab.PageSize = 10;
+            treatmentTab.SelectPage(1);
+            treatmentTabPage.Controls.Add(treatmentTab);
+            tabOrganization.TabPages.Add(treatmentTabPage);
+        }
+
         private void OrganizationInfoForm_Load(object sender, EventArgs e)
         {
             _presenter = new OrganizationInfoPresenter(this);

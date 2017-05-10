@@ -56,6 +56,10 @@ namespace RitEduClient
                 new DataColumn("Zip"), new DataColumn("County"), new DataColumn("State"),
                 new DataColumn("Id")
             });
+            if(_lastSearchResults.Organizations == null)
+            {
+                return pageContents;
+            }
             for(int i=0; i< pageSize && ((pageIndex-1) * pageSize + i < _lastSearchResults.Organizations.Length); i++)
             {
                 Organization org = _lastSearchResults.Organizations[(pageIndex-1) * pageSize + i];
@@ -71,7 +75,7 @@ namespace RitEduClient
 
         public int GetRecordCount(string dataSetId)
         {
-            return _lastSearchResults.Organizations.Length;
+            return _lastSearchResults.Organizations == null? 0 : _lastSearchResults.Organizations.Length;
         }
 
     }

@@ -13,10 +13,12 @@ namespace RitEduClient.Models
     {
         public event Action LocationTabLoaded;
         public event Action TrainingTabLoaded;
+        public event Action TreatmentTabLoaded;
         public event Action<OrganizationGeneralInfo> GeneralTabLoaded;
         private ESDService _esdService;
         private LocationList _locationList;
         private TrainingList _trainingList;
+        private TreatmentList _treatmentList;
 
         public OrganizationInfoModel(ESDService esdService)
         {
@@ -35,10 +37,13 @@ namespace RitEduClient.Models
         {
             if(dataSetId == Constants.LOCATION_DATASET_ID)
             {
-                return _locationList.Locations.Length;
+                return _locationList.Locations == null? 0 : _locationList.Locations.Length;
             }else if(dataSetId == Constants.TRAINING_DATASET_ID)
             {
-                return _trainingList.Trainings.Length;
+                return _trainingList.Trainings == null? 0 : _trainingList.Trainings.Length;
+            }else if (dataSetId == Constants.TREATMENT_DATASET_ID)
+            {
+                return _treatmentList.Treatments == null? 0 : _treatmentList.Treatments.Length;
             }else
             {
                 return 0;
@@ -53,7 +58,11 @@ namespace RitEduClient.Models
             }else if(dataSetId == Constants.TRAINING_DATASET_ID)
             {
                 return GetTrainingsResultsPage(pageIndex, pageSize);
-            }else
+            }else if(dataSetId == Constants.TREATMENT_DATASET_ID)
+            {
+                return GetTreatmentsResultsPage(pageIndex, pageSize);
+            }
+            else
             {
                 return new DataTable();
             }
@@ -77,6 +86,10 @@ namespace RitEduClient.Models
                 {
                     _trainingList = await _esdService.GetOrganizationTrainings(orgId);
                     TrainingTabLoaded?.Invoke();
+                }else if(tab.Name.ToUpper() == Enum.GetName(typeof(TabName), TabName.TREATMENT))
+                {
+                    _treatmentList = await _esdService.GetOrganizationTreatments(orgId);
+                    TreatmentTabLoaded ?.Invoke();
                 }
             }
         }
@@ -91,6 +104,10 @@ namespace RitEduClient.Models
                 new DataColumn("TtyPhone"), new DataColumn("Fax"), new DataColumn("Latitude/Longitude"),
                 new DataColumn("County")
             });
+            if(_locationList.Locations == null)
+            {
+                return pageContents;
+            }
             for (int i = 0; i < pageSize && ((pageIndex - 1) * pageSize + i < _locationList.Locations.Length); i++)
             {
                 Location location = _locationList.Locations[(pageIndex - 1) * pageSize + i];
@@ -112,12 +129,38 @@ namespace RitEduClient.Models
             {
                 new DataColumn("Type ID"), new DataColumn("Type"), new DataColumn("Abbreviation")
             });
+            if (_trainingList.Trainings == null)
+            {
+                return new DataTable();
+            }
             for (int i = 0; i < pageSize && ((pageIndex - 1) * pageSize + i < _trainingList.Trainings.Length); i++)
             {
                 Training training = _trainingList.Trainings[(pageIndex - 1) * pageSize + i];
                 pageContents.Rows.Add
                 (
                     training.TypeId, training.Type, training.Abbreviation
+                );
+            }
+            return pageContents;
+        }
+
+        public DataTable GetTreatmentsResultsPage(int pageIndex, int pageSize)
+        {
+            var pageContents = new DataTable();
+            pageContents.Columns.AddRange(new DataColumn[]
+            {
+                new DataColumn("Type ID"), new DataColumn("Type"), new DataColumn("Abbreviation")
+            });
+            if (_treatmentList.Treatments == null)
+            {
+                return pageContents;
+            }
+            for (int i = 0; i < pageSize && ((pageIndex - 1) * pageSize + i < _treatmentList.Treatments.Length); i++)
+            {
+                Treatment treatment = _treatmentList.Treatments[(pageIndex - 1) * pageSize + i];
+                pageContents.Rows.Add
+                (
+                    treatment.TypeId, treatment.Type, treatment.Abbreviation
                 );
             }
             return pageContents;

@@ -19,6 +19,7 @@ namespace RitEduClient
             _model.GeneralTabLoaded += OnGeneralTabLoaded;
             _model.LocationTabLoaded += OnLocationTabLoaded;
             _model.TrainingTabLoaded += OnTrainingTabLoaded;
+            _model.TreatmentTabLoaded += OnTreatmentTabLoaded;
         }
 
         public async Task LoadTabs(int orgId)
@@ -53,6 +54,11 @@ namespace RitEduClient
         private void OnTrainingTabLoaded()
         {
             _view.LoadTrainingTab();
+        }
+
+        private void OnTreatmentTabLoaded()
+        {
+            _view.LoadTreatmentTab();
         }
 
     }

@@ -14,5 +14,7 @@ namespace RitEduClient.Views
         void LoadLocationTab();
 
         void LoadTrainingTab();
+
+        void LoadTreatmentTab();
     }
 }

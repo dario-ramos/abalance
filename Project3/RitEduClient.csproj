@@ -56,6 +56,7 @@
     <Compile Include="Models\Entities\Tab.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Models\Entities\Training.cs" />
+    <Compile Include="Models\Entities\Treatment.cs" />
     <Compile Include="Views\GeneralTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -103,6 +104,12 @@
     <Compile Include="Views\TrainingTab.Designer.cs">
       <DependentUpon>TrainingTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TreatmentTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TreatmentTab.Designer.cs">
+      <DependentUpon>TreatmentTab.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\GeneralTab.resx">
       <DependentUpon>GeneralTab.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +137,9 @@
     </Compile>
     <EmbeddedResource Include="Views\TrainingTab.resx">
       <DependentUpon>TrainingTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TreatmentTab.resx">
+      <DependentUpon>TreatmentTab.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -20,6 +20,7 @@ namespace RitEduClient
     {
         GENERAL,
         LOCATIONS,
-        TRAINING
+        TRAINING,
+        TREATMENT
     }
 }
