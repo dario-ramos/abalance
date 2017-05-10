@@ -15,7 +15,6 @@ namespace RitEduClient
     {
         private ESDService _esdService;
         private OrganizationList _lastSearchResults;
-        private static int _pageSize = 10; //TODO Make configurable
 
         public OrganizationSearchModel(ESDService esdService)
         {
@@ -27,25 +26,6 @@ namespace RitEduClient
             get
             {
                 return _esdService;
-            }
-        }
-
-        public int PageCount
-        {
-            get
-            {
-                return (int)Math.Ceiling((decimal)ResultsCount / PageSize);
-            }
-        }
-
-        public int PageSize {
-            get
-            {
-                return _pageSize;
-            }
-            private set
-            {
-                _pageSize = value;
             }
         }
 
@@ -74,7 +54,7 @@ namespace RitEduClient
             }
         }
 
-        public DataTable GetResultsPage(int pageIndex)
+        public DataTable GetResultsPage(int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
             pageContents.Columns.AddRange(new DataColumn[]
@@ -83,9 +63,9 @@ namespace RitEduClient
                 new DataColumn("Zip"), new DataColumn("County"), new DataColumn("State"),
                 new DataColumn("Id")
             });
-            for(int i=0; i<_pageSize && ((pageIndex-1) * _pageSize + i < _lastSearchResults.Organizations.Length); i++)
+            for(int i=0; i< pageSize && ((pageIndex-1) * pageSize + i < _lastSearchResults.Organizations.Length); i++)
             {
-                Organization org = _lastSearchResults.Organizations[(pageIndex-1) * _pageSize + i];
+                Organization org = _lastSearchResults.Organizations[(pageIndex-1) * pageSize + i];
                 pageContents.Rows.Add
                 (
                     org.Type, org.Name, org.City,

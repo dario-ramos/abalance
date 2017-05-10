@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Search = new System.Windows.Forms.GroupBox();
             this.txtCounty = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,22 +43,11 @@
             this.organizationType = new System.Windows.Forms.Label();
             this.cmbOrgType = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lnkLastPage = new System.Windows.Forms.LinkLabel();
-            this.lnkNextPage = new System.Windows.Forms.LinkLabel();
-            this.lnkPageE = new System.Windows.Forms.LinkLabel();
-            this.lnkPageD = new System.Windows.Forms.LinkLabel();
-            this.lnkPageC = new System.Windows.Forms.LinkLabel();
-            this.lnkPageB = new System.Windows.Forms.LinkLabel();
-            this.lnkPageA = new System.Windows.Forms.LinkLabel();
-            this.lnkPreviousPage = new System.Windows.Forms.LinkLabel();
-            this.lnkFirstPage = new System.Windows.Forms.LinkLabel();
-            this.lblResultsInfo = new System.Windows.Forms.Label();
-            this.dgvResults = new System.Windows.Forms.DataGridView();
+            this.pdgvResults = new RitEduClient.PagedDataGridView();
             this.tbcMainTabs = new System.Windows.Forms.TabControl();
             this.tabMain = new System.Windows.Forms.TabPage();
             this.Search.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
             this.tbcMainTabs.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.SuspendLayout();
@@ -203,157 +191,20 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lnkLastPage);
-            this.groupBox1.Controls.Add(this.lnkNextPage);
-            this.groupBox1.Controls.Add(this.lnkPageE);
-            this.groupBox1.Controls.Add(this.lnkPageD);
-            this.groupBox1.Controls.Add(this.lnkPageC);
-            this.groupBox1.Controls.Add(this.lnkPageB);
-            this.groupBox1.Controls.Add(this.lnkPageA);
-            this.groupBox1.Controls.Add(this.lnkPreviousPage);
-            this.groupBox1.Controls.Add(this.lnkFirstPage);
-            this.groupBox1.Controls.Add(this.lblResultsInfo);
-            this.groupBox1.Controls.Add(this.dgvResults);
+            this.groupBox1.Controls.Add(this.pdgvResults);
             this.groupBox1.Location = new System.Drawing.Point(18, 154);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(766, 365);
+            this.groupBox1.Size = new System.Drawing.Size(766, 463);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Results";
             // 
-            // lnkLastPage
+            // pdgvResults
             // 
-            this.lnkLastPage.AutoSize = true;
-            this.lnkLastPage.Location = new System.Drawing.Point(732, 323);
-            this.lnkLastPage.Name = "lnkLastPage";
-            this.lnkLastPage.Size = new System.Drawing.Size(27, 13);
-            this.lnkLastPage.TabIndex = 12;
-            this.lnkLastPage.TabStop = true;
-            this.lnkLastPage.Text = "Last";
-            this.lnkLastPage.Visible = false;
-            this.lnkLastPage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLastPage_LinkClicked);
-            // 
-            // lnkNextPage
-            // 
-            this.lnkNextPage.AutoSize = true;
-            this.lnkNextPage.Location = new System.Drawing.Point(697, 323);
-            this.lnkNextPage.Name = "lnkNextPage";
-            this.lnkNextPage.Size = new System.Drawing.Size(29, 13);
-            this.lnkNextPage.TabIndex = 11;
-            this.lnkNextPage.TabStop = true;
-            this.lnkNextPage.Text = "Next";
-            this.lnkNextPage.Visible = false;
-            this.lnkNextPage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkNextPage_LinkClicked);
-            // 
-            // lnkPageE
-            // 
-            this.lnkPageE.Location = new System.Drawing.Point(657, 323);
-            this.lnkPageE.Name = "lnkPageE";
-            this.lnkPageE.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageE.TabIndex = 10;
-            this.lnkPageE.TabStop = true;
-            this.lnkPageE.Text = "5000";
-            this.lnkPageE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageE.Visible = false;
-            this.lnkPageE.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageE_LinkClicked);
-            // 
-            // lnkPageD
-            // 
-            this.lnkPageD.Location = new System.Drawing.Point(620, 323);
-            this.lnkPageD.Name = "lnkPageD";
-            this.lnkPageD.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageD.TabIndex = 9;
-            this.lnkPageD.TabStop = true;
-            this.lnkPageD.Text = "4000";
-            this.lnkPageD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageD.Visible = false;
-            this.lnkPageD.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageD_LinkClicked);
-            // 
-            // lnkPageC
-            // 
-            this.lnkPageC.Location = new System.Drawing.Point(581, 323);
-            this.lnkPageC.Name = "lnkPageC";
-            this.lnkPageC.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageC.TabIndex = 8;
-            this.lnkPageC.TabStop = true;
-            this.lnkPageC.Text = "3000";
-            this.lnkPageC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageC.Visible = false;
-            this.lnkPageC.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageC_LinkClicked);
-            // 
-            // lnkPageB
-            // 
-            this.lnkPageB.Location = new System.Drawing.Point(542, 323);
-            this.lnkPageB.Name = "lnkPageB";
-            this.lnkPageB.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageB.TabIndex = 7;
-            this.lnkPageB.TabStop = true;
-            this.lnkPageB.Text = "2000";
-            this.lnkPageB.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageB.Visible = false;
-            this.lnkPageB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageB_LinkClicked);
-            // 
-            // lnkPageA
-            // 
-            this.lnkPageA.Location = new System.Drawing.Point(506, 323);
-            this.lnkPageA.Name = "lnkPageA";
-            this.lnkPageA.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageA.TabIndex = 6;
-            this.lnkPageA.TabStop = true;
-            this.lnkPageA.Text = "1000";
-            this.lnkPageA.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageA.Visible = false;
-            this.lnkPageA.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageA_LinkClicked);
-            // 
-            // lnkPreviousPage
-            // 
-            this.lnkPreviousPage.AutoSize = true;
-            this.lnkPreviousPage.Location = new System.Drawing.Point(456, 323);
-            this.lnkPreviousPage.Name = "lnkPreviousPage";
-            this.lnkPreviousPage.Size = new System.Drawing.Size(48, 13);
-            this.lnkPreviousPage.TabIndex = 5;
-            this.lnkPreviousPage.TabStop = true;
-            this.lnkPreviousPage.Text = "Previous";
-            this.lnkPreviousPage.Visible = false;
-            this.lnkPreviousPage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPreviousPage_LinkClicked);
-            // 
-            // lnkFirstPage
-            // 
-            this.lnkFirstPage.AutoSize = true;
-            this.lnkFirstPage.Location = new System.Drawing.Point(416, 323);
-            this.lnkFirstPage.Name = "lnkFirstPage";
-            this.lnkFirstPage.Size = new System.Drawing.Size(26, 13);
-            this.lnkFirstPage.TabIndex = 4;
-            this.lnkFirstPage.TabStop = true;
-            this.lnkFirstPage.Text = "First";
-            this.lnkFirstPage.Visible = false;
-            this.lnkFirstPage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFirstPage_LinkClicked);
-            // 
-            // lblResultsInfo
-            // 
-            this.lblResultsInfo.AutoSize = true;
-            this.lblResultsInfo.Location = new System.Drawing.Point(7, 323);
-            this.lblResultsInfo.Name = "lblResultsInfo";
-            this.lblResultsInfo.Size = new System.Drawing.Size(88, 13);
-            this.lblResultsInfo.TabIndex = 1;
-            this.lblResultsInfo.Text = "Page Description";
-            // 
-            // dgvResults
-            // 
-            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvResults.Location = new System.Drawing.Point(9, 20);
-            this.dgvResults.Name = "dgvResults";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvResults.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvResults.Size = new System.Drawing.Size(750, 291);
-            this.dgvResults.TabIndex = 0;
-            this.dgvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentClick);
+            this.pdgvResults.Location = new System.Drawing.Point(10, 19);
+            this.pdgvResults.Name = "pdgvResults";
+            this.pdgvResults.Size = new System.Drawing.Size(725, 438);
+            this.pdgvResults.TabIndex = 0;
             // 
             // tbcMainTabs
             // 
@@ -361,7 +212,7 @@
             this.tbcMainTabs.Location = new System.Drawing.Point(21, 12);
             this.tbcMainTabs.Name = "tbcMainTabs";
             this.tbcMainTabs.SelectedIndex = 0;
-            this.tbcMainTabs.Size = new System.Drawing.Size(821, 568);
+            this.tbcMainTabs.Size = new System.Drawing.Size(821, 646);
             this.tbcMainTabs.TabIndex = 13;
             // 
             // tabMain
@@ -371,7 +222,7 @@
             this.tabMain.Location = new System.Drawing.Point(4, 22);
             this.tabMain.Name = "tabMain";
             this.tabMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMain.Size = new System.Drawing.Size(813, 542);
+            this.tabMain.Size = new System.Drawing.Size(813, 620);
             this.tabMain.TabIndex = 0;
             this.tabMain.Text = "Main";
             this.tabMain.UseVisualStyleBackColor = true;
@@ -380,7 +231,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 601);
+            this.ClientSize = new System.Drawing.Size(869, 661);
             this.Controls.Add(this.tbcMainTabs);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
@@ -389,8 +240,6 @@
             this.Search.ResumeLayout(false);
             this.Search.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
             this.tbcMainTabs.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -414,19 +263,9 @@
         private System.Windows.Forms.TextBox txtCounty;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvResults;
-        private System.Windows.Forms.Label lblResultsInfo;
-        private System.Windows.Forms.LinkLabel lnkFirstPage;
-        private System.Windows.Forms.LinkLabel lnkPreviousPage;
-        private System.Windows.Forms.LinkLabel lnkPageA;
-        private System.Windows.Forms.LinkLabel lnkPageB;
-        private System.Windows.Forms.LinkLabel lnkPageD;
-        private System.Windows.Forms.LinkLabel lnkPageC;
-        private System.Windows.Forms.LinkLabel lnkPageE;
-        private System.Windows.Forms.LinkLabel lnkNextPage;
-        private System.Windows.Forms.LinkLabel lnkLastPage;
         private System.Windows.Forms.TabControl tbcMainTabs;
         private System.Windows.Forms.TabPage tabMain;
+        private PagedDataGridView pdgvResults;
     }
 }
 

@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ESDService.cs" />
+    <Compile Include="IPagedDataProvider.cs" />
     <Compile Include="Models\Entities\City.cs" />
     <Compile Include="Models\Entities\County.cs" />
     <Compile Include="Models\Entities\Organization.cs" />
@@ -60,6 +61,12 @@
     </Compile>
     <Compile Include="Models\ModelFactory.cs" />
     <Compile Include="Models\OrganizationInfoModel.cs" />
+    <Compile Include="PagedDataGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagedDataGridView.Designer.cs">
+      <DependentUpon>PagedDataGridView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\IOrganizationInfoView.cs" />
     <Compile Include="Views\IOrganizationSearchView.cs" />
     <Compile Include="Views\MainForm.cs">
@@ -83,6 +90,9 @@
     <Compile Include="Models\Entities\State.cs" />
     <EmbeddedResource Include="GeneralTab.resx">
       <DependentUpon>GeneralTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagedDataGridView.resx">
+      <DependentUpon>PagedDataGridView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

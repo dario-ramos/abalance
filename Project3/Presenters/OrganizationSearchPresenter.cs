@@ -6,7 +6,7 @@ using RitEduClient.Models;
 
 namespace RitEduClient
 {
-    class OrganizationSearchPresenter
+    public class OrganizationSearchPresenter : IPagedDataProvider
     {
         private OrganizationSearchModel _model;
         private IOrganizationSearchView _view;
@@ -17,22 +17,7 @@ namespace RitEduClient
             _view = view;
         }
 
-        public int PageCount
-        {
-            get
-            {
-                return _model.PageCount;
-            }
-        }
-
-        public int PageSize {
-            get
-            {
-                return _model.PageSize;
-            }
-        }
-
-        public int ResultsCount
+        public int RecordCount
         {
             get
             {
@@ -68,13 +53,12 @@ namespace RitEduClient
                 searchOrgType, searchOrgName, searchState,
                 searchCity, searchCounty, searchZip
             );
-            _view.ShowResults(1, _model.PageSize, _model.ResultsCount, _model.GetResultsPage(1));
+            _view.ShowResults(1);
         }
 
-        public DataTable GetResultsPage(int pageIndex)
+        public DataTable GetPage(int pageIndex, int pageSize)
         {
-            return _model.GetResultsPage(pageIndex); ;
+            return _model.GetResultsPage(pageIndex, pageSize);
         }
-
     }
 }

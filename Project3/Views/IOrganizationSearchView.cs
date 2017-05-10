@@ -5,6 +5,6 @@ namespace RitEduClient
 {
     public interface IOrganizationSearchView
     {
-        void ShowResults(int pageIndex, int pageSize, int resultsCount, DataTable pageContents);
+        void ShowResults(int pageIndex);
     }
 }
