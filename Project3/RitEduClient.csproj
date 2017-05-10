@@ -48,15 +48,38 @@
     <Compile Include="Constants.cs" />
     <Compile Include="ESDService.cs" />
     <Compile Include="IPagedDataProvider.cs" />
+    <Compile Include="Models\AggregatedPeopleList.cs" />
     <Compile Include="Models\Entities\City.cs" />
     <Compile Include="Models\Entities\County.cs" />
+    <Compile Include="Models\Entities\Equipment.cs" />
+    <Compile Include="Models\Entities\Facility.cs" />
     <Compile Include="Models\Entities\Location.cs" />
     <Compile Include="Models\Entities\Organization.cs" />
     <Compile Include="Models\Entities\OrganizationGeneralInfo.cs" />
+    <Compile Include="Models\Entities\People.cs" />
+    <Compile Include="Models\Entities\Physician.cs" />
     <Compile Include="Models\Entities\Tab.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Models\Entities\Training.cs" />
     <Compile Include="Models\Entities\Treatment.cs" />
+    <Compile Include="Views\PhysiciansTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PhysiciansTab.Designer.cs">
+      <DependentUpon>PhysiciansTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeopleTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PeopleTab.Designer.cs">
+      <DependentUpon>PeopleTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FacilityTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FacilityTab.Designer.cs">
+      <DependentUpon>FacilityTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GeneralTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -104,12 +127,27 @@
     <Compile Include="Views\TrainingTab.Designer.cs">
       <DependentUpon>TrainingTab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EquipmentTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\EquipmentTab.Designer.cs">
+      <DependentUpon>EquipmentTab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TreatmentTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\TreatmentTab.Designer.cs">
       <DependentUpon>TreatmentTab.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\PhysiciansTab.resx">
+      <DependentUpon>PhysiciansTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PeopleTab.resx">
+      <DependentUpon>PeopleTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FacilityTab.resx">
+      <DependentUpon>FacilityTab.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\GeneralTab.resx">
       <DependentUpon>GeneralTab.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +175,9 @@
     </Compile>
     <EmbeddedResource Include="Views\TrainingTab.resx">
       <DependentUpon>TrainingTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EquipmentTab.resx">
+      <DependentUpon>EquipmentTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TreatmentTab.resx">
       <DependentUpon>TreatmentTab.cs</DependentUpon>

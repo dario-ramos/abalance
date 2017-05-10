@@ -17,6 +17,30 @@ namespace RitEduClient
             _orgId = orgId;
         }
 
+        public void LoadEquipmentTab()
+        {
+            TabPage equipmentTabPage = new TabPage("Equipment");
+            EquipmentTab equipmentTab = new EquipmentTab();
+            equipmentTab.DataSetId = Constants.EQUIPMENT_DATASET_ID;
+            equipmentTab.PagedDataProvider = _presenter;
+            equipmentTab.PageSize = 10;
+            equipmentTab.SelectPage(1);
+            equipmentTabPage.Controls.Add(equipmentTab);
+            tabOrganization.TabPages.Add(equipmentTabPage);
+        }
+
+        public void LoadFacilityTab()
+        {
+            TabPage facilityTabPage = new TabPage("Facilities");
+            FacilityTab facilityTab = new FacilityTab();
+            facilityTab.DataSetId = Constants.FACILITY_DATASET_ID;
+            facilityTab.PagedDataProvider = _presenter;
+            facilityTab.PageSize = 10;
+            facilityTab.SelectPage(1);
+            facilityTabPage.Controls.Add(facilityTab);
+            tabOrganization.TabPages.Add(facilityTabPage);
+        }
+
         public void LoadGeneralTab(string orgName, string orgDesc, string orgEmail,
                                    string orgWebsite, string orgNumMembers, string orgNumCalls)
         {
@@ -44,6 +68,30 @@ namespace RitEduClient
             locationTab.SelectPage(1);
             locationTabPage.Controls.Add(locationTab);
             tabOrganization.TabPages.Add(locationTabPage);
+        }
+
+        public void LoadPeopleTab()
+        {
+            TabPage peopleTabPage = new TabPage("People");
+            PeopleTab peopleTab = new PeopleTab();
+            peopleTab.DataSetId = Constants.PEOPLE_DATASET_ID;
+            peopleTab.PagedDataProvider = _presenter;
+            peopleTab.PageSize = 10;
+            peopleTab.SelectPage(1);
+            peopleTabPage.Controls.Add(peopleTab);
+            tabOrganization.TabPages.Add(peopleTabPage);
+        }
+
+        public void LoadPhysiciansTab()
+        {
+            TabPage physicianTabPage = new TabPage("Physicians");
+            PhysicianTab physicianTab = new PhysicianTab();
+            physicianTab.DataSetId = Constants.PHYSICIANS_DATASET_ID;
+            physicianTab.PagedDataProvider = _presenter;
+            physicianTab.PageSize = 10;
+            physicianTab.SelectPage(1);
+            physicianTabPage.Controls.Add(physicianTab);
+            tabOrganization.TabPages.Add(physicianTabPage);
         }
 
         public void LoadTrainingTab()

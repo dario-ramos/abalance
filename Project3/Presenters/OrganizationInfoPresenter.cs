@@ -16,8 +16,12 @@ namespace RitEduClient
         {
             _view = view;
             _model = ModelFactory.CreateOrganizationInfoModel();
+            _model.EquipmentTabLoaded += OnEquipmentTabLoaded;
+            _model.FacilityTabLoaded += OnFacilityTabLoaded;
             _model.GeneralTabLoaded += OnGeneralTabLoaded;
             _model.LocationTabLoaded += OnLocationTabLoaded;
+            _model.PeopleTabLoaded += OnPeopleTabLoaded;
+            _model.PhysiciansTabLoaded += OnPhysiciansTabLoaded;
             _model.TrainingTabLoaded += OnTrainingTabLoaded;
             _model.TreatmentTabLoaded += OnTreatmentTabLoaded;
         }
@@ -37,6 +41,16 @@ namespace RitEduClient
             return _model.GetRecordCount(dataSetId);
         }
 
+        private void OnEquipmentTabLoaded()
+        {
+            _view.LoadEquipmentTab();
+        }
+
+        private void OnFacilityTabLoaded()
+        {
+            _view.LoadFacilityTab();
+        }
+
         private void OnGeneralTabLoaded(OrganizationGeneralInfo generalInfo)
         {
             _view.LoadGeneralTab
@@ -49,6 +63,16 @@ namespace RitEduClient
         private void OnLocationTabLoaded()
         {
             _view.LoadLocationTab();
+        }
+
+        private void OnPeopleTabLoaded()
+        {
+            _view.LoadPeopleTab();
+        }
+
+        private void OnPhysiciansTabLoaded()
+        {
+            _view.LoadPhysiciansTab();
         }
 
         private void OnTrainingTabLoaded()

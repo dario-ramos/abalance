@@ -1,6 +1,8 @@
 ﻿using RitEduClient.Entities;
+using RitEduClient.Models;
 using RitEduClient.Models.Entities;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Text;
@@ -31,6 +33,16 @@ namespace RitEduClient
             return await GetEntity<CountyList>("ESD/Counties?state=" + state.Name);
         }
 
+        public async Task<EquipmentList> GetOrganizationEquipment(int orgId)
+        {
+            return await GetEntity<EquipmentList>("ESD/" + orgId + "/Equipment");
+        }
+
+        public async Task<FacilityList> GetOrganizationFacilities(int orgId)
+        {
+            return await GetEntity<FacilityList>("ESD/" + orgId + "/Facilities");
+        }
+
         public async Task<LocationList> GetOrganizationLocations(int orgId)
         {
             return await GetEntity<LocationList>("ESD/" + orgId + "/Locations");
@@ -39,6 +51,36 @@ namespace RitEduClient
         public async Task<OrganizationGeneralInfo> GetOrganizationGeneralInfo(int orgId)
         {
             return await GetEntity<OrganizationGeneralInfo>("ESD/" + orgId + "/General");
+        }
+
+        public async Task<AggregatedPeopleList> GetOrganizationPeople(int orgId)
+        {
+            PeopleList people = await GetEntity<PeopleList>("ESD/" + orgId + "/People");
+            var aggregatedPeople = new AggregatedPeopleList();
+            aggregatedPeople.People = new Tuple<Person, Site>[0];
+            if (people.Sites == null)
+            {
+                return aggregatedPeople;
+            }
+            var allPeople = new List<Tuple<Person, Site>>();
+            for (int i=0; i < people.Sites.Length; i++)
+            {
+                if(people.Sites[i].People == null)
+                {
+                    continue;
+                }
+                for(int j=0; j < people.Sites[i].People.Length; j++)
+                {
+                    allPeople.Add(new Tuple<Person, Site>(people.Sites[i].People[j], people.Sites[i]));
+                }
+            }
+            aggregatedPeople.People = allPeople.ToArray();
+            return aggregatedPeople;
+        }
+
+        public async Task<PhysicianList> GetOrganizationPhysicians(int orgId)
+        {
+            return await GetEntity<PhysicianList>("ESD/" + orgId + "/Physicians");
         }
 
         public async Task<TrainingList> GetOrganizationTrainings(int orgId)

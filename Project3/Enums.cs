@@ -18,8 +18,12 @@ namespace RitEduClient
 
     enum TabName
     {
+        EQUIPMENT,
+        FACILITIES,
         GENERAL,
         LOCATIONS,
+        PEOPLE,
+        PHYSICIANS,
         TRAINING,
         TREATMENT
     }
