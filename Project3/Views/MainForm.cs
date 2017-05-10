@@ -22,6 +22,7 @@ namespace RitEduClient
         {
             InitializeComponent();
             pdgvResults.CellContentClick += pdgvResults_CellContentClick;
+            pdgvResults.DataSetId = Constants.ORGANIZATIONS_DATASET_ID;
             pdgvResults.DefaultColumnSortMode = DataGridViewColumnSortMode.Programmatic;
             pdgvResults.PageSize = 10;
             pdgvResults.SetPageDescription("");

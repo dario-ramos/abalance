@@ -41,6 +41,11 @@ namespace RitEduClient
             return await GetEntity<OrganizationGeneralInfo>("ESD/" + orgId + "/General");
         }
 
+        public async Task<TrainingList> GetOrganizationTrainings(int orgId)
+        {
+            return await GetEntity<TrainingList>("ESD/" + orgId + "/Training");
+        }
+
         public async Task<OrganizationTypeList> GetOrganizationTypes()
         {
             return await GetEntity<OrganizationTypeList>("ESD/OrgTypes");

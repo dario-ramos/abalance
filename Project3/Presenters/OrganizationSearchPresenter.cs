@@ -17,12 +17,9 @@ namespace RitEduClient
             _view = view;
         }
 
-        public int RecordCount
+        public int GetRecordCount(string dataSetId)
         {
-            get
-            {
-                return _model.ResultsCount;
-            }
+            return _model.GetRecordCount(dataSetId);
         }
 
         public async Task<CityList> GetCities(State state)
@@ -56,9 +53,9 @@ namespace RitEduClient
             _view.ShowResults(1);
         }
 
-        public DataTable GetPage(int pageIndex, int pageSize)
+        public DataTable GetPage(string dataSetId, int pageIndex, int pageSize)
         {
-            return _model.GetResultsPage(pageIndex, pageSize);
+            return _model.GetResultsPage(dataSetId, pageIndex, pageSize);
         }
     }
 }

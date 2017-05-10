@@ -29,13 +29,6 @@ namespace RitEduClient
             }
         }
 
-        public int ResultsCount {
-            get
-            {
-                return _lastSearchResults.Organizations.Length;
-            }
-        }
-
         public async Task SearchOrganizations(OrganizationType searchOrgType, string searchOrgName, State searchState,
                                       City searchCity, string searchCounty, string searchZip)
         {
@@ -54,7 +47,7 @@ namespace RitEduClient
             }
         }
 
-        public DataTable GetResultsPage(int pageIndex, int pageSize)
+        public DataTable GetResultsPage(string dataSetId, int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
             pageContents.Columns.AddRange(new DataColumn[]
@@ -74,6 +67,11 @@ namespace RitEduClient
                 );
             }
             return pageContents;
+        }
+
+        public int GetRecordCount(string dataSetId)
+        {
+            return _lastSearchResults.Organizations.Length;
         }
 
     }

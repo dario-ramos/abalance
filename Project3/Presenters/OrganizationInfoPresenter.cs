@@ -18,24 +18,22 @@ namespace RitEduClient
             _model = ModelFactory.CreateOrganizationInfoModel();
             _model.GeneralTabLoaded += OnGeneralTabLoaded;
             _model.LocationTabLoaded += OnLocationTabLoaded;
-        }
-
-        public int RecordCount
-        {
-            get
-            {
-                return _model.RecordCount;
-            }
-        }
-
-        public DataTable GetPage(int pageIndex, int pageSize)
-        {
-            return _model.GetResultsPage(pageIndex, pageSize);
+            _model.TrainingTabLoaded += OnTrainingTabLoaded;
         }
 
         public async Task LoadTabs(int orgId)
         {
             await _model.LoadTabs(orgId);
+        }
+
+        public DataTable GetPage(string dataSetId, int pageIndex, int pageSize)
+        {
+            return _model.GetResultsPage(dataSetId, pageIndex, pageSize);
+        }
+
+        public int GetRecordCount(string dataSetId)
+        {
+            return _model.GetRecordCount(dataSetId);
         }
 
         private void OnGeneralTabLoaded(OrganizationGeneralInfo generalInfo)
@@ -50,6 +48,11 @@ namespace RitEduClient
         private void OnLocationTabLoaded()
         {
             _view.LoadLocationTab();
+        }
+
+        private void OnTrainingTabLoaded()
+        {
+            _view.LoadTrainingTab();
         }
 
     }

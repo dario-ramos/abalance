@@ -12,5 +12,7 @@ namespace RitEduClient.Views
                             string orgWebsite, string orgNumMembers, string orgNumCalls);
 
         void LoadLocationTab();
+
+        void LoadTrainingTab();
     }
 }

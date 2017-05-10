@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="ESDService.cs" />
     <Compile Include="IPagedDataProvider.cs" />
     <Compile Include="Models\Entities\City.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Models\Entities\OrganizationGeneralInfo.cs" />
     <Compile Include="Models\Entities\Tab.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="Models\Entities\Training.cs" />
     <Compile Include="Views\GeneralTab.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +97,12 @@
     <Compile Include="Models\OrganizationSearchModel.cs" />
     <Compile Include="Presenters\OrganizationSearchPresenter.cs" />
     <Compile Include="Models\Entities\State.cs" />
+    <Compile Include="Views\TrainingTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TrainingTab.Designer.cs">
+      <DependentUpon>TrainingTab.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\GeneralTab.resx">
       <DependentUpon>GeneralTab.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +128,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\TrainingTab.resx">
+      <DependentUpon>TrainingTab.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

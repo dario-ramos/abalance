@@ -4,8 +4,8 @@ namespace RitEduClient
 {
     public interface IPagedDataProvider
     {
-        int RecordCount { get; }
+        int GetRecordCount(string dataSetId);
 
-        DataTable GetPage(int pageIndex, int pageSize);
+        DataTable GetPage(string dataSetId, int pageIndex, int pageSize);
     }
 }

@@ -27,6 +27,8 @@ namespace RitEduClient
 
         public int PageSize{ get; set; }
 
+        public string DataSetId { get; set; }
+
         public object GetCellValue(int rowIndex, string columnName)
         {
             return dgv.Rows[rowIndex].Cells[columnName].Value;
@@ -45,14 +47,14 @@ namespace RitEduClient
         public void SelectPage(int pageIndex)
         {
             _currentPageIndex = pageIndex;
-            dgv.DataSource = PagedDataProvider.GetPage(pageIndex, PageSize);
+            dgv.DataSource = PagedDataProvider.GetPage(DataSetId, pageIndex, PageSize);
             foreach(DataGridViewColumn col in dgv.Columns)
             {
                 col.SortMode = DefaultColumnSortMode;
             }
-            SetPageDescription(GetPageDescription(pageIndex, PagedDataProvider.RecordCount));
-            int pageCount = GetPageCount(PagedDataProvider.RecordCount);
-            if(PagedDataProvider.RecordCount > PageSize)
+            SetPageDescription(GetPageDescription(pageIndex, PagedDataProvider.GetRecordCount(DataSetId)));
+            int pageCount = GetPageCount(PagedDataProvider.GetRecordCount(DataSetId));
+            if(PagedDataProvider.GetRecordCount(DataSetId) > PageSize)
             {
                 lnkFirstPage.Visible = (pageIndex != 1);
                 lnkPreviousPage.Visible = (pageIndex != 1);
@@ -106,7 +108,7 @@ namespace RitEduClient
 
         private void lnkLastPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            int pageCount = GetPageCount(PagedDataProvider.RecordCount);
+            int pageCount = GetPageCount(PagedDataProvider.GetRecordCount(DataSetId));
             SelectPage(pageCount);
         }
 
@@ -155,10 +157,10 @@ namespace RitEduClient
             lnkPageA.Enabled = lnkPageB.Enabled = lnkPageC.Enabled = lnkPageD.Enabled = lnkPageE.Enabled = true;
             lnkPageA.Visible = true;
             lnkPageB.Visible = true;
-            lnkPageC.Visible = (PagedDataProvider.RecordCount > 2 * PageSize);
-            lnkPageD.Visible = (PagedDataProvider.RecordCount > 3 * PageSize);
-            lnkPageE.Visible = (PagedDataProvider.RecordCount > 4 * PageSize);
-            int pageCount = GetPageCount(PagedDataProvider.RecordCount);
+            lnkPageC.Visible = (PagedDataProvider.GetRecordCount(DataSetId) > 2 * PageSize);
+            lnkPageD.Visible = (PagedDataProvider.GetRecordCount(DataSetId) > 3 * PageSize);
+            lnkPageE.Visible = (PagedDataProvider.GetRecordCount(DataSetId) > 4 * PageSize);
+            int pageCount = GetPageCount(PagedDataProvider.GetRecordCount(DataSetId));
             //Edge cases: 1, 2, last one and before last one
             if (pageIndex == 1)
             {

@@ -38,11 +38,24 @@ namespace RitEduClient
         {
             TabPage locationTabPage = new TabPage("Location");
             LocationTab locationTab = new LocationTab();
+            locationTab.DataSetId = Constants.LOCATION_DATASET_ID;
             locationTab.PagedDataProvider = _presenter;
             locationTab.PageSize = 10;
             locationTab.SelectPage(1);
             locationTabPage.Controls.Add(locationTab);
             tabOrganization.TabPages.Add(locationTabPage);
+        }
+
+        public void LoadTrainingTab()
+        {
+            TabPage trainingTabPage = new TabPage("Training");
+            TrainingTab trainingTab = new TrainingTab();
+            trainingTab.DataSetId = Constants.TRAINING_DATASET_ID;
+            trainingTab.PagedDataProvider = _presenter;
+            trainingTab.PageSize = 10;
+            trainingTab.SelectPage(1);
+            trainingTabPage.Controls.Add(trainingTab);
+            tabOrganization.TabPages.Add(trainingTabPage);
         }
 
         private void OrganizationInfoForm_Load(object sender, EventArgs e)

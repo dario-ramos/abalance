@@ -12,9 +12,11 @@ namespace RitEduClient.Models
     public class OrganizationInfoModel
     {
         public event Action LocationTabLoaded;
+        public event Action TrainingTabLoaded;
         public event Action<OrganizationGeneralInfo> GeneralTabLoaded;
         private ESDService _esdService;
         private LocationList _locationList;
+        private TrainingList _trainingList;
 
         public OrganizationInfoModel(ESDService esdService)
         {
@@ -29,15 +31,57 @@ namespace RitEduClient.Models
             }
         }
 
-        public int RecordCount
+        public int GetRecordCount(string dataSetId)
         {
-            get
+            if(dataSetId == Constants.LOCATION_DATASET_ID)
             {
                 return _locationList.Locations.Length;
+            }else if(dataSetId == Constants.TRAINING_DATASET_ID)
+            {
+                return _trainingList.Trainings.Length;
+            }else
+            {
+                return 0;
             }
         }
 
-        public DataTable GetResultsPage(int pageIndex, int pageSize)
+        public DataTable GetResultsPage(string dataSetId, int pageIndex, int pageSize)
+        {
+            if(dataSetId == Constants.LOCATION_DATASET_ID)
+            {
+                return GetLocationsResultsPage(pageIndex, pageSize);
+            }else if(dataSetId == Constants.TRAINING_DATASET_ID)
+            {
+                return GetTrainingsResultsPage(pageIndex, pageSize);
+            }else
+            {
+                return new DataTable();
+            }
+        }
+
+        public async Task LoadTabs(int orgId)
+        {
+            TabList tabs = await _esdService.GetTabs(orgId);
+            foreach (Tab tab in tabs.Tabs)
+            {
+                if (tab.Name.ToUpper() == Enum.GetName(typeof(TabName), TabName.GENERAL))
+                {
+                    OrganizationGeneralInfo generalInfo = await _esdService.GetOrganizationGeneralInfo(orgId);
+                    GeneralTabLoaded?.Invoke(generalInfo);
+                }
+                else if(tab.Name.ToUpper() == Enum.GetName(typeof(TabName), TabName.LOCATIONS))
+                {
+                    _locationList = await _esdService.GetOrganizationLocations(orgId);
+                    LocationTabLoaded?.Invoke();
+                }else if(tab.Name.ToUpper() == Enum.GetName(typeof(TabName), TabName.TRAINING))
+                {
+                    _trainingList = await _esdService.GetOrganizationTrainings(orgId);
+                    TrainingTabLoaded?.Invoke();
+                }
+            }
+        }
+
+        public DataTable GetLocationsResultsPage(int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
             pageContents.Columns.AddRange(new DataColumn[]
@@ -61,22 +105,22 @@ namespace RitEduClient.Models
             return pageContents;
         }
 
-        public async Task LoadTabs(int orgId)
+        public DataTable GetTrainingsResultsPage(int pageIndex, int pageSize)
         {
-            TabList tabs = await _esdService.GetTabs(orgId);
-            foreach (Tab tab in tabs.Tabs)
+            var pageContents = new DataTable();
+            pageContents.Columns.AddRange(new DataColumn[]
             {
-                if (tab.Name.ToUpper() == Enum.GetName(typeof(TabName), TabName.GENERAL))
-                {
-                    OrganizationGeneralInfo generalInfo = await _esdService.GetOrganizationGeneralInfo(orgId);
-                    GeneralTabLoaded?.Invoke(generalInfo);
-                }
-                else if(tab.Name.ToUpper() == Enum.GetName(typeof(TabName), TabName.LOCATIONS))
-                {
-                    _locationList = await _esdService.GetOrganizationLocations(orgId);
-                    LocationTabLoaded?.Invoke();
-                }
+                new DataColumn("Type ID"), new DataColumn("Type"), new DataColumn("Abbreviation")
+            });
+            for (int i = 0; i < pageSize && ((pageIndex - 1) * pageSize + i < _trainingList.Trainings.Length); i++)
+            {
+                Training training = _trainingList.Trainings[(pageIndex - 1) * pageSize + i];
+                pageContents.Rows.Add
+                (
+                    training.TypeId, training.Type, training.Abbreviation
+                );
             }
+            return pageContents;
         }
 
     }

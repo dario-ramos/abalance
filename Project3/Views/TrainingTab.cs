@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RitEduClient.Views
 {
-    public partial class LocationTab : UserControl
+    public partial class TrainingTab : UserControl
     {
-        public LocationTab()
+        public TrainingTab()
         {
             InitializeComponent();
         }
@@ -21,7 +21,7 @@ namespace RitEduClient.Views
         {
             set
             {
-                pdgvLocations.PageSize = value;
+                pdgvTraining.PageSize = value;
             }
         }
 
@@ -29,7 +29,7 @@ namespace RitEduClient.Views
         {
             set
             {
-                pdgvLocations.PagedDataProvider = value;
+                pdgvTraining.PagedDataProvider = value;
             }
         }
 
@@ -37,14 +37,13 @@ namespace RitEduClient.Views
         {
             set
             {
-                pdgvLocations.DataSetId = value;
+                pdgvTraining.DataSetId = value;
             }
         }
 
         public void SelectPage(int pageIndex)
         {
-            pdgvLocations.SelectPage(pageIndex);
+            pdgvTraining.SelectPage(pageIndex);
         }
-
     }
 }

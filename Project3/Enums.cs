@@ -19,6 +19,7 @@ namespace RitEduClient
     enum TabName
     {
         GENERAL,
-        LOCATIONS
+        LOCATIONS,
+        TRAINING
     }
 }
