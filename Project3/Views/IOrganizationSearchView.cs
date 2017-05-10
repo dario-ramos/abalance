@@ -3,12 +3,8 @@ using System.Data;
 
 namespace RitEduClient
 {
-    public interface IRitEduClientView
+    public interface IOrganizationSearchView
     {
-        void ClearTabs();
-
-        void LoadGeneralTab(OrganizationGeneralInfo generalInfo);
-
         void ShowResults(int pageIndex, int pageSize, int resultsCount, DataTable pageContents);
     }
 }

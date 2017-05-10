@@ -14,31 +14,16 @@ using System.Xml;
 
 namespace RitEduClient
 {
-    public partial class MainForm : Form, IRitEduClientView
+    public partial class MainForm : Form, IOrganizationSearchView
     {
         private int _currentResultsPageIndex;
-        private RitEduClientPresenter _presenter;
+        private OrganizationSearchPresenter _presenter;
 
         public MainForm()
         {
             InitializeComponent();
             SetResultsInfo("");
             _currentResultsPageIndex = 0;
-        }
-
-        public void ClearTabs()
-        {
-            ClearGeneralTab();
-        }
-
-        public void LoadGeneralTab(OrganizationGeneralInfo generalInfo)
-        {
-            lblGeneralInfoName.Text = generalInfo.Name;
-            lblGeneralInfoDescription.Text = generalInfo.Description;
-            lblGeneralInfoEmail.Text = generalInfo.Email;
-            lblGeneralInfoWebsite.Text = generalInfo.Website;
-            lblGeneralInfoNumMem.Text = generalInfo.NumMembers;
-            lblGeneralInfoNumCalls.Text = generalInfo.NumCalls;
         }
 
         public void ShowResults(int pageIndex, int pageSize, int resultsCount, DataTable pageContents)
@@ -106,19 +91,9 @@ namespace RitEduClient
             txtZip.Text = "";
         }
 
-        private void ClearGeneralTab()
-        {
-            lblGeneralInfoName.Text = "";
-            lblGeneralInfoDescription.Text = "";
-            lblGeneralInfoEmail.Text = "";
-            lblGeneralInfoWebsite.Text = "";
-            lblGeneralInfoNumMem.Text = "";
-            lblGeneralInfoNumCalls.Text = "";
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _presenter = new RitEduClientPresenter(this);
+            _presenter = new OrganizationSearchPresenter(this);
             OrganizationTypeList orgTypes = _presenter.GetOrganizationTypes().Result;
             foreach(OrganizationType orgType in orgTypes.OrganizationTypes)
             {
@@ -154,7 +129,8 @@ namespace RitEduClient
             if(dgvResults.Columns[e.ColumnIndex].Name == "Name")
             {
                 int orgId = int.Parse(dgvResults.Rows[e.RowIndex].Cells["Id"].Value.ToString());
-                _presenter.LoadTabs(orgId).Wait();
+                var orgInfo = new OrganizationInfoForm(orgId);
+                orgInfo.Show();
             }
         }
 

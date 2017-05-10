@@ -2,17 +2,18 @@
 using System.Data;
 using System.Threading.Tasks;
 using RitEduClient.Entities;
+using RitEduClient.Models;
 
 namespace RitEduClient
 {
-    class RitEduClientPresenter
+    class OrganizationSearchPresenter
     {
-        private RitEduClientModel _model;
-        private IRitEduClientView _view;
+        private OrganizationSearchModel _model;
+        private IOrganizationSearchView _view;
 
-        public RitEduClientPresenter(IRitEduClientView view)
+        public OrganizationSearchPresenter(IOrganizationSearchView view)
         {
-            _model = new RitEduClientModel();
+            _model = ModelFactory.CreateOrganizationSearchModel();
             _view = view;
         }
 
@@ -41,36 +42,22 @@ namespace RitEduClient
 
         public async Task<CityList> GetCities(State state)
         {
-            return await _model.GetCities(state);
+            return await _model.ESDService.GetCities(state);
         }
 
         public async Task<CountyList> GetCounties(State state)
         {
-            return await _model.GetCounties(state);
+            return await _model.ESDService.GetCounties(state);
         }
 
         public async Task<OrganizationTypeList> GetOrganizationTypes()
         {
-            return await _model.GetOrganizationTypes();
+            return await _model.ESDService.GetOrganizationTypes();
         }
 
         public async Task<StateList> GetStates()
         {
-            return await _model.GetStates();
-        }
-
-        public async Task LoadTabs(int orgId)
-        {
-            _view.ClearTabs();
-            TabList tabs = await _model.GetTabs(orgId);
-            foreach(Tab tab in tabs.Tabs)
-            {
-                if(tab.Name.ToUpper() == Enum.GetName(typeof(TabName), TabName.GENERAL))
-                {
-                    OrganizationGeneralInfo generalInfo = await _model.GetOrganizationGeneralInfo(orgId);
-                    _view.LoadGeneralTab(generalInfo);
-                }
-            }
+            return await _model.ESDService.GetStates();
         }
 
         public async Task SearchOrganizations(OrganizationType searchOrgType, string searchOrgName, State searchState,
