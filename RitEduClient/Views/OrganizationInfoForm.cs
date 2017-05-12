@@ -16,6 +16,9 @@ namespace RitEduClient
             _orgId = orgId;
         }
 
+        /**
+         * Render equipment tab dynamically (add it to the TabControl)
+         */
         public void LoadEquipmentTab()
         {
             TabPage equipmentTabPage = new TabPage("Equipment");
@@ -28,6 +31,9 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(equipmentTabPage);
         }
 
+        /**
+         * Render facility tab dynamically (add it to the TabControl)
+         */
         public void LoadFacilityTab()
         {
             TabPage facilityTabPage = new TabPage("Facilities");
@@ -40,6 +46,9 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(facilityTabPage);
         }
 
+        /**
+         * Render general tab dynamically (add it to the TabControl)
+         */
         public void LoadGeneralTab(string orgName, string orgDesc, string orgEmail,
                                    string orgWebsite, string orgNumMembers, string orgNumCalls)
         {
@@ -57,6 +66,9 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(generalTabPage);
         }
 
+        /**
+         * Render location tab dynamically (add it to the TabControl)
+         */
         public void LoadLocationTab()
         {
             TabPage locationTabPage = new TabPage("Location");
@@ -69,6 +81,9 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(locationTabPage);
         }
 
+        /**
+         * Render people tab dynamically (add it to the TabControl)
+         */
         public void LoadPeopleTab()
         {
             TabPage peopleTabPage = new TabPage("People");
@@ -81,6 +96,9 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(peopleTabPage);
         }
 
+        /**
+         * Render physician tab dynamically (add it to the TabControl)
+         */
         public void LoadPhysiciansTab()
         {
             TabPage physicianTabPage = new TabPage("Physicians");
@@ -93,6 +111,9 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(physicianTabPage);
         }
 
+        /**
+         * Render training tab dynamically (add it to the TabControl)
+         */
         public void LoadTrainingTab()
         {
             TabPage trainingTabPage = new TabPage("Training");
@@ -105,6 +126,9 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(trainingTabPage);
         }
 
+        /**
+         * Render treatment tab dynamically (add it to the TabControl)
+         */
         public void LoadTreatmentTab()
         {
             TabPage treatmentTabPage = new TabPage("Treatment");
@@ -117,6 +141,9 @@ namespace RitEduClient
             tabOrganization.TabPages.Add(treatmentTabPage);
         }
 
+        /**
+         * Load all tabs for the given organization id
+         */
         private void OrganizationInfoForm_Load(object sender, EventArgs e)
         {
             _presenter = new OrganizationInfoPresenter(this);

@@ -20,6 +20,9 @@ namespace RitEduClient
             pdgvResults.SetPageDescription("");
         }
 
+        /**
+         * Render search results (sort byt type and hide id column)
+         */
         public void ShowResults(int pageIndex)
         {
             pdgvResults.SelectPage(pageIndex);
@@ -27,6 +30,9 @@ namespace RitEduClient
             pdgvResults.SetColumnVisibility("Id", false);
         }
 
+        /**
+         * Mark UI status as "Searching...", read search criteria from form and initiate search
+         */
         private async void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -63,6 +69,9 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Set form search criteria to initial values
+         */
         private void btnReset_Click(object sender, EventArgs e)
         {
             try
@@ -87,6 +96,9 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Initialize combo box values
+         */
         private void MainForm_Load(object sender, EventArgs e)
         {
             try
@@ -118,6 +130,10 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * When a state is selected, load all its cities in the City combo box.
+         * If "All states" selected, don't load anything.
+         */
         private void cmbState_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -153,17 +169,26 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Flatten the Aggregate exception for easy visualization, and render its message in the message log control
+         */
         private void HandleAggregateException(AggregateException aex)
         {
             aex = aex.Flatten();
             rtbMessageLog.AppendText("ERROR: " + aex.InnerException.Message);
         }
 
+        /**
+         * Render error message in the message log control
+         */
         private void HandleGeneralException(Exception ex)
         {
             rtbMessageLog.AppendText("ERROR: " + ex.Message + Environment.NewLine);
         }
 
+        /**
+         * When an organization name is clicked, read its id and open an instance of OrganizationInfoForm for it
+         */
         private void pdgvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

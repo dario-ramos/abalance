@@ -44,6 +44,10 @@ namespace RitEduClient.Entities
 
     public sealed class OrganizationComparerByType : IComparer
     {
+        /**
+         * Returns -1 if Organization x goes before organization y,
+         * 0 if they are equal and 1 if y goes before x
+         */
         public int Compare(object x, object y)
         {
             if(x == null && y == null){

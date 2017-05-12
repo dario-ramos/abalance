@@ -10,6 +10,9 @@ namespace RitEduClient.Entities
         [XmlElement("State")]
         public string Name { get; set; }
 
+        /**
+         * Override default string representation
+         */
         public override string ToString()
         {
             return Name;

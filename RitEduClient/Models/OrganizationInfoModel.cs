@@ -33,6 +33,9 @@ namespace RitEduClient.Models
             _esdService = esdService;
         }
 
+        /**
+         * ESDService exposed to avoid defining intermediary methods which just call it
+         */
         public ESDService ESDService
         {
             get
@@ -41,6 +44,9 @@ namespace RitEduClient.Models
             }
         }
 
+        /**
+         * Given a dataset it, return the total amount of records it holds
+         */
         public int GetRecordCount(string dataSetId)
         {
             if (dataSetId == Constants.EQUIPMENT_DATASET_ID)
@@ -77,6 +83,9 @@ namespace RitEduClient.Models
             }
         }
 
+        /**
+         * Given a dataset id, a page index and page size, return all the records for that page inside a DataTable
+         */
         public DataTable GetResultsPage(string dataSetId, int pageIndex, int pageSize)
         {
             if (dataSetId == Constants.EQUIPMENT_DATASET_ID)
@@ -113,6 +122,10 @@ namespace RitEduClient.Models
             }
         }
 
+        /**
+         * Given an organization id, get its tabs and retrieve the complete data for each of them
+         * Fire an event for each one to notify the presenter that they are ready to render
+         */
         public async Task LoadTabs(int orgId)
         {
             TabList tabs = await _esdService.GetTabs(orgId);
@@ -159,6 +172,9 @@ namespace RitEduClient.Models
             }
         }
 
+        /**
+         * Given a page index and page size, dump a full page of equipment data inside a DataTable
+         */
         public DataTable GetEquipmentResultsPage(int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
@@ -181,6 +197,9 @@ namespace RitEduClient.Models
             return pageContents;
         }
 
+        /**
+         * Given a page index and page size, dump a full page of facility data inside a DataTable
+         */
         public DataTable GetFacilityResultsPage(int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
@@ -205,6 +224,9 @@ namespace RitEduClient.Models
             return pageContents;
         }
 
+        /**
+         * Given a page index and page size, dump a full page of location data inside a DataTable
+         */
         public DataTable GetLocationsResultsPage(int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
@@ -233,6 +255,9 @@ namespace RitEduClient.Models
             return pageContents;
         }
 
+        /**
+         * Given a page index and page size, dump a full page of people data inside a DataTable
+         */
         public DataTable GetPeopleResultsPage(int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
@@ -259,6 +284,9 @@ namespace RitEduClient.Models
             return pageContents;
         }
 
+        /**
+         * Given a page index and page size, dump a full page of physician data inside a DataTable
+         */
         public DataTable GetPhysiciansResultsPage(int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
@@ -283,6 +311,9 @@ namespace RitEduClient.Models
             return pageContents;
         }
 
+        /**
+         * Given a page index and page size, dump a full page of training data inside a DataTable
+         */
         public DataTable GetTrainingsResultsPage(int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
@@ -305,6 +336,9 @@ namespace RitEduClient.Models
             return pageContents;
         }
 
+        /**
+         * Given a page index and page size, dump a full page of treatment data inside a DataTable
+         */
         public DataTable GetTreatmentsResultsPage(int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();

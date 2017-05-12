@@ -21,6 +21,9 @@ namespace RitEduClient
             _esdService = esdService;
         }
 
+        /**
+         * ESDService exposed to avoid defining intermediary methods which just call it
+         */
         public ESDService ESDService
         {
             get
@@ -29,6 +32,10 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Get all the organizations which meet the given criteria. Sort them by organization type.
+         * If results are empty, create them as an empty array. 
+         */
         public async Task SearchOrganizations(OrganizationType searchOrgType, string searchOrgName, State searchState,
                                       City searchCity, string searchCounty, string searchZip)
         {
@@ -47,6 +54,11 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Given a dataset id, page index and page size, dump a page of search results into a data table.
+         * This class holds only one dataset, so datasetId is not used. But it has to be declared to
+         * conform to the IPagedDataProvider interface, and in case more data is added in the future.
+         */
         public DataTable GetResultsPage(string dataSetId, int pageIndex, int pageSize)
         {
             var pageContents = new DataTable();
@@ -73,6 +85,11 @@ namespace RitEduClient
             return pageContents;
         }
 
+        /**
+         * Given a dataset it, return the total amount of records it holds
+         * This class holds only one dataset, so datasetId is not used. But it has to be declared to
+         * conform to the IPagedDataProvider interface, and in case more data is added in the future.
+         */
         public int GetRecordCount(string dataSetId)
         {
             return _lastSearchResults.Organizations == null? 0 : _lastSearchResults.Organizations.Length;

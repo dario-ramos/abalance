@@ -17,6 +17,9 @@ namespace RitEduClient
             InitializeComponent();
         }
 
+        /**
+         * Load data in UI
+         */
         public string OrganizationDescription
         {
             set
@@ -25,6 +28,9 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Load data in UI
+         */
         public string OrganizationEmail
         {
             set
@@ -33,6 +39,9 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Load data in UI
+         */
         public string OrganizationName
         {
             set
@@ -41,6 +50,9 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Load data in UI
+         */
         public string OrganizationNumCalls
         {
             set
@@ -49,6 +61,9 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Load data in UI
+         */
         public string OrganizationNumMembers
         {
             set
@@ -57,6 +72,9 @@ namespace RitEduClient
             }
         }
 
+        /**
+         * Load data in UI
+         */
         public string OrganizationWebsite
         {
             set

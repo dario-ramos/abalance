@@ -19,6 +19,9 @@ namespace RitEduClient.Views
             pdgvFacilities.ReadOnly = true;
         }
 
+        /**
+         *Defer to dgv 
+         */
         public int PageSize
         {
             set
@@ -27,6 +30,9 @@ namespace RitEduClient.Views
             }
         }
 
+        /**
+         *Defer to dgv 
+         */
         public IPagedDataProvider PagedDataProvider
         {
             set
@@ -35,6 +41,9 @@ namespace RitEduClient.Views
             }
         }
 
+        /**
+         *Defer to dgv 
+         */
         public string DataSetId
         {
             set
@@ -43,6 +52,9 @@ namespace RitEduClient.Views
             }
         }
 
+        /**
+         *Defer to dgv 
+         */
         public void SelectPage(int pageIndex)
         {
             pdgvFacilities.SelectPage(pageIndex);
