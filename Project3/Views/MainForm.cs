@@ -37,77 +37,143 @@ namespace RitEduClient
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            pdgvResults.Clear();
-            pdgvResults.SetPageDescription("Searching...");
-            OrganizationType searchOrgType = (OrganizationType)cmbOrgType.SelectedItem;
-            string searchOrgName = txtOrgName.Text;
-            State searchState = (State)cmbState.SelectedItem;
-            City searchCity = (City)cmbCity.SelectedItem;
-            string searchCounty = txtCounty.Text;
-            string searchZip = txtZip.Text;
-            await _presenter.SearchOrganizations
-            (
-                searchOrgType, searchOrgName, searchState,
-                searchCity, searchCounty, searchZip
-            );
+            try
+            {
+                pdgvResults.Clear();
+                pdgvResults.SetPageDescription("Searching...");
+                OrganizationType searchOrgType = (OrganizationType)cmbOrgType.SelectedItem;
+                string searchOrgName = txtOrgName.Text;
+                State searchState = (State)cmbState.SelectedItem;
+                City searchCity = (City)cmbCity.SelectedItem;
+                string searchCounty = txtCounty.Text;
+                string searchZip = txtZip.Text;
+                await _presenter.SearchOrganizations
+                (
+                    searchOrgType, searchOrgName, searchState,
+                    searchCity, searchCounty, searchZip
+                );
+            }
+            catch (AggregateException aex)
+            {
+                HandleAggregateException(aex);
+            }
+            catch (Exception ex)
+            {
+                HandleGeneralException(ex);
+            }
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            cmbOrgType.SelectedIndex = -1;
-            cmbOrgType.Text = "-- select any value --";
-            cmbState.SelectedIndex = -1;
-            cmbState.Text = "-- select any value --";
-            cmbCity.SelectedIndex = -1;
-            cmbCity.Items.Clear();
-            cmbCity.Enabled = false;
-            cmbCity.Text = "-- select any value --";
-            txtOrgName.Text = "";
-            txtCounty.Text = "";
-            txtZip.Text = "";
+            try
+            {
+                cmbOrgType.SelectedIndex = -1;
+                cmbOrgType.Text = "-- select any value --";
+                cmbState.SelectedIndex = -1;
+                cmbState.Text = "-- select any value --";
+                cmbCity.SelectedIndex = -1;
+                cmbCity.Items.Clear();
+                cmbCity.Enabled = false;
+                cmbCity.Text = "-- select any value --";
+                txtOrgName.Text = "";
+                txtCounty.Text = "";
+                txtZip.Text = "";
+            }
+            catch (AggregateException aex)
+            {
+                HandleAggregateException(aex);
+            }
+            catch (Exception ex)
+            {
+                HandleGeneralException(ex);
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _presenter = new OrganizationSearchPresenter(this);
-            pdgvResults.PagedDataProvider = _presenter;
-            OrganizationTypeList orgTypes = _presenter.GetOrganizationTypes().Result;
-            foreach(OrganizationType orgType in orgTypes.OrganizationTypes)
+            try
             {
-                cmbOrgType.Items.Add(orgType);
+                _presenter = new OrganizationSearchPresenter(this);
+                pdgvResults.PagedDataProvider = _presenter;
+                OrganizationTypeList orgTypes = _presenter.GetOrganizationTypes().Result;
+                foreach (OrganizationType orgType in orgTypes.OrganizationTypes)
+                {
+                    cmbOrgType.Items.Add(orgType);
+                }
+                StateList states = _presenter.GetStates().Result;
+                foreach (State state in states.States)
+                {
+                    cmbState.Items.Add(state);
+                }
             }
-            StateList states = _presenter.GetStates().Result;
-            foreach (State state in states.States)
+            catch (AggregateException aex)
             {
-                cmbState.Items.Add(state);
+                HandleAggregateException(aex);
+            }
+            catch (Exception ex)
+            {
+                HandleGeneralException(ex);
             }
         }
 
         private void cmbState_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbState.SelectedIndex < 0)
-            {
-                return;
+            try
+            { 
+                if(cmbState.SelectedIndex < 0)
+                {
+                    return;
+                }
+                cmbCity.Enabled = false;
+                State selectedState = (State)cmbState.SelectedItem;
+                CityList stateCities = _presenter.GetCities(selectedState).Result;
+                cmbCity.Items.Clear();
+                foreach(City city in stateCities.Cities)
+                {
+                    cmbCity.Items.Add(city);
+                }
+                cmbCity.Text = "-- select any value --";
+                cmbCity.Enabled = true;
             }
-            cmbCity.Enabled = false;
-            State selectedState = (State)cmbState.SelectedItem;
-            CityList stateCities = _presenter.GetCities(selectedState).Result;
-            cmbCity.Items.Clear();
-            foreach(City city in stateCities.Cities)
+            catch (AggregateException aex)
             {
-                cmbCity.Items.Add(city);
+                HandleAggregateException(aex);
             }
-            cmbCity.Text = "-- select any value --";
-            cmbCity.Enabled = true;
+            catch (Exception ex)
+            {
+                HandleGeneralException(ex);
+            }
+        }
+
+        private void HandleAggregateException(AggregateException aex)
+        {
+            aex = aex.Flatten();
+            rtbMessageLog.AppendText("ERROR: " + aex.InnerException.Message);
+        }
+
+        private void HandleGeneralException(Exception ex)
+        {
+            rtbMessageLog.AppendText("ERROR: " + ex.Message + Environment.NewLine);
         }
 
         private void pdgvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (pdgvResults.GetColumnName(e.ColumnIndex) == "Name")
+            try
+            { 
+                if (pdgvResults.GetColumnName(e.ColumnIndex) == "Name")
+                {
+                    int orgId = int.Parse(pdgvResults.GetCellValue(e.RowIndex, "Id").ToString());
+                    var orgInfo = new OrganizationInfoForm(orgId);
+                    orgInfo.Show();
+                }
+            }
+            catch (AggregateException aex)
             {
-                int orgId = int.Parse(pdgvResults.GetCellValue(e.RowIndex, "Id").ToString());
-                var orgInfo = new OrganizationInfoForm(orgId);
-                orgInfo.Show();
+                HandleAggregateException(aex);
+            }
+            catch (Exception ex)
+            {
+                HandleGeneralException(ex);
             }
         }
 
