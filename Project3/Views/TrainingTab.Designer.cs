@@ -33,6 +33,7 @@
             // 
             // pdgvTraining
             // 
+            this.pdgvTraining.DataSetId = null;
             this.pdgvTraining.DefaultColumnSortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.pdgvTraining.Location = new System.Drawing.Point(19, 19);
             this.pdgvTraining.Name = "pdgvTraining";
@@ -45,6 +46,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pdgvTraining);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "TrainingTab";
             this.Size = new System.Drawing.Size(798, 460);
             this.ResumeLayout(false);

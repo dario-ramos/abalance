@@ -42,6 +42,7 @@
             // 
             // pdgvLocations
             // 
+            this.pdgvLocations.DataSetId = null;
             this.pdgvLocations.DefaultColumnSortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.pdgvLocations.Location = new System.Drawing.Point(12, 241);
             this.pdgvLocations.Name = "pdgvLocations";
@@ -55,6 +56,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pdgvLocations);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "LocationTab";
             this.Size = new System.Drawing.Size(798, 460);
             this.ResumeLayout(false);
