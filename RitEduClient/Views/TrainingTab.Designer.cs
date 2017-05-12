@@ -33,12 +33,15 @@
             // 
             // pdgvTraining
             // 
+            this.pdgvTraining.BackColor = System.Drawing.SystemColors.Control;
             this.pdgvTraining.DataSetId = null;
             this.pdgvTraining.DefaultColumnSortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.pdgvTraining.Location = new System.Drawing.Point(19, 19);
+            this.pdgvTraining.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdgvTraining.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdgvTraining.Location = new System.Drawing.Point(0, 0);
             this.pdgvTraining.Name = "pdgvTraining";
             this.pdgvTraining.PageSize = 0;
-            this.pdgvTraining.Size = new System.Drawing.Size(764, 420);
+            this.pdgvTraining.Size = new System.Drawing.Size(798, 460);
             this.pdgvTraining.TabIndex = 0;
             // 
             // TrainingTab

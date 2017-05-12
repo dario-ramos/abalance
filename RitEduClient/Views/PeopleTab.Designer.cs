@@ -33,12 +33,15 @@
             // 
             // pdgvPeople
             // 
+            this.pdgvPeople.BackColor = System.Drawing.SystemColors.Control;
             this.pdgvPeople.DataSetId = null;
             this.pdgvPeople.DefaultColumnSortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.pdgvPeople.Location = new System.Drawing.Point(0, 3);
+            this.pdgvPeople.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdgvPeople.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdgvPeople.Location = new System.Drawing.Point(0, 0);
             this.pdgvPeople.Name = "pdgvPeople";
             this.pdgvPeople.PageSize = 0;
-            this.pdgvPeople.Size = new System.Drawing.Size(795, 454);
+            this.pdgvPeople.Size = new System.Drawing.Size(798, 460);
             this.pdgvPeople.TabIndex = 0;
             // 
             // PeopleTab

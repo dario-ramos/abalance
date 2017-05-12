@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv = new System.Windows.Forms.DataGridView();
-            this.lblPageDescription = new System.Windows.Forms.Label();
-            this.lnkLastPage = new System.Windows.Forms.LinkLabel();
-            this.lnkNextPage = new System.Windows.Forms.LinkLabel();
-            this.lnkPageE = new System.Windows.Forms.LinkLabel();
-            this.lnkPageD = new System.Windows.Forms.LinkLabel();
-            this.lnkPageC = new System.Windows.Forms.LinkLabel();
-            this.lnkPageB = new System.Windows.Forms.LinkLabel();
-            this.lnkPageA = new System.Windows.Forms.LinkLabel();
-            this.lnkPreviousPage = new System.Windows.Forms.LinkLabel();
-            this.lnkFirstPage = new System.Windows.Forms.LinkLabel();
+            this.dgv = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.lblPageDescription = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.lnkFirstPage = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.lnkPreviousPage = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.lnkPageA = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.lnkPageB = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.lnkPageC = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.lnkPageD = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.lnkPageE = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.lnkNextPage = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
+            this.lnkLastPage = new ComponentFactory.Krypton.Toolkit.KryptonLinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,143 +48,125 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(15, 12);
+            this.dgv.Location = new System.Drawing.Point(0, 0);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(654, 296);
-            this.dgv.TabIndex = 0;
+            this.dgv.Size = new System.Drawing.Size(698, 307);
+            this.dgv.TabIndex = 22;
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
             // lblPageDescription
             // 
             this.lblPageDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblPageDescription.AutoSize = true;
-            this.lblPageDescription.Location = new System.Drawing.Point(12, 324);
+            this.lblPageDescription.Location = new System.Drawing.Point(0, 313);
             this.lblPageDescription.Name = "lblPageDescription";
-            this.lblPageDescription.Size = new System.Drawing.Size(87, 13);
-            this.lblPageDescription.TabIndex = 2;
-            this.lblPageDescription.Text = "Page Description";
-            // 
-            // lnkLastPage
-            // 
-            this.lnkLastPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkLastPage.AutoSize = true;
-            this.lnkLastPage.Location = new System.Drawing.Point(642, 325);
-            this.lnkLastPage.Name = "lnkLastPage";
-            this.lnkLastPage.Size = new System.Drawing.Size(27, 13);
-            this.lnkLastPage.TabIndex = 21;
-            this.lnkLastPage.TabStop = true;
-            this.lnkLastPage.Text = "Last";
-            this.lnkLastPage.Visible = false;
-            this.lnkLastPage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkLastPage_LinkClicked);
-            // 
-            // lnkNextPage
-            // 
-            this.lnkNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkNextPage.AutoSize = true;
-            this.lnkNextPage.Location = new System.Drawing.Point(605, 325);
-            this.lnkNextPage.Name = "lnkNextPage";
-            this.lnkNextPage.Size = new System.Drawing.Size(30, 13);
-            this.lnkNextPage.TabIndex = 20;
-            this.lnkNextPage.TabStop = true;
-            this.lnkNextPage.Text = "Next";
-            this.lnkNextPage.Visible = false;
-            this.lnkNextPage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkNextPage_LinkClicked);
-            // 
-            // lnkPageE
-            // 
-            this.lnkPageE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkPageE.Location = new System.Drawing.Point(563, 325);
-            this.lnkPageE.Name = "lnkPageE";
-            this.lnkPageE.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageE.TabIndex = 19;
-            this.lnkPageE.TabStop = true;
-            this.lnkPageE.Text = "5000";
-            this.lnkPageE.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageE.Visible = false;
-            this.lnkPageE.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageE_LinkClicked);
-            // 
-            // lnkPageD
-            // 
-            this.lnkPageD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkPageD.Location = new System.Drawing.Point(524, 325);
-            this.lnkPageD.Name = "lnkPageD";
-            this.lnkPageD.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageD.TabIndex = 18;
-            this.lnkPageD.TabStop = true;
-            this.lnkPageD.Text = "4000";
-            this.lnkPageD.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageD.Visible = false;
-            this.lnkPageD.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageD_LinkClicked);
-            // 
-            // lnkPageC
-            // 
-            this.lnkPageC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkPageC.Location = new System.Drawing.Point(483, 325);
-            this.lnkPageC.Name = "lnkPageC";
-            this.lnkPageC.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageC.TabIndex = 17;
-            this.lnkPageC.TabStop = true;
-            this.lnkPageC.Text = "3000";
-            this.lnkPageC.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageC.Visible = false;
-            this.lnkPageC.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageC_LinkClicked);
-            // 
-            // lnkPageB
-            // 
-            this.lnkPageB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkPageB.Location = new System.Drawing.Point(445, 325);
-            this.lnkPageB.Name = "lnkPageB";
-            this.lnkPageB.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageB.TabIndex = 16;
-            this.lnkPageB.TabStop = true;
-            this.lnkPageB.Text = "2000";
-            this.lnkPageB.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageB.Visible = false;
-            this.lnkPageB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageB_LinkClicked);
-            // 
-            // lnkPageA
-            // 
-            this.lnkPageA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkPageA.Location = new System.Drawing.Point(406, 325);
-            this.lnkPageA.Name = "lnkPageA";
-            this.lnkPageA.Size = new System.Drawing.Size(35, 13);
-            this.lnkPageA.TabIndex = 15;
-            this.lnkPageA.TabStop = true;
-            this.lnkPageA.Text = "1000";
-            this.lnkPageA.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lnkPageA.Visible = false;
-            this.lnkPageA.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPageA_LinkClicked);
-            // 
-            // lnkPreviousPage
-            // 
-            this.lnkPreviousPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkPreviousPage.AutoSize = true;
-            this.lnkPreviousPage.Location = new System.Drawing.Point(355, 325);
-            this.lnkPreviousPage.Name = "lnkPreviousPage";
-            this.lnkPreviousPage.Size = new System.Drawing.Size(48, 13);
-            this.lnkPreviousPage.TabIndex = 14;
-            this.lnkPreviousPage.TabStop = true;
-            this.lnkPreviousPage.Text = "Previous";
-            this.lnkPreviousPage.Visible = false;
-            this.lnkPreviousPage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkPreviousPage_LinkClicked);
+            this.lblPageDescription.Size = new System.Drawing.Size(103, 20);
+            this.lblPageDescription.TabIndex = 23;
+            this.lblPageDescription.Values.Text = "Page Description";
             // 
             // lnkFirstPage
             // 
             this.lnkFirstPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkFirstPage.AutoSize = true;
-            this.lnkFirstPage.Location = new System.Drawing.Point(323, 325);
+            this.lnkFirstPage.Location = new System.Drawing.Point(331, 313);
             this.lnkFirstPage.Name = "lnkFirstPage";
-            this.lnkFirstPage.Size = new System.Drawing.Size(28, 13);
-            this.lnkFirstPage.TabIndex = 13;
-            this.lnkFirstPage.TabStop = true;
-            this.lnkFirstPage.Text = "First";
+            this.lnkFirstPage.Size = new System.Drawing.Size(33, 20);
+            this.lnkFirstPage.TabIndex = 24;
+            this.lnkFirstPage.Values.Text = "First";
             this.lnkFirstPage.Visible = false;
-            this.lnkFirstPage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFirstPage_LinkClicked);
+            this.lnkFirstPage.LinkClicked += new System.EventHandler(this.lnkFirstPage_LinkClicked);
+            // 
+            // lnkPreviousPage
+            // 
+            this.lnkPreviousPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPreviousPage.Location = new System.Drawing.Point(365, 313);
+            this.lnkPreviousPage.Name = "lnkPreviousPage";
+            this.lnkPreviousPage.Size = new System.Drawing.Size(57, 20);
+            this.lnkPreviousPage.TabIndex = 25;
+            this.lnkPreviousPage.Values.Text = "Previous";
+            this.lnkPreviousPage.Visible = false;
+            this.lnkPreviousPage.LinkClicked += new System.EventHandler(this.lnkPreviousPage_LinkClicked);
+            // 
+            // lnkPageA
+            // 
+            this.lnkPageA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageA.Location = new System.Drawing.Point(422, 313);
+            this.lnkPageA.Name = "lnkPageA";
+            this.lnkPageA.Size = new System.Drawing.Size(37, 20);
+            this.lnkPageA.TabIndex = 26;
+            this.lnkPageA.Values.Text = "1000";
+            this.lnkPageA.Visible = false;
+            this.lnkPageA.LinkClicked += new System.EventHandler(this.lnkPageA_LinkClicked);
+            // 
+            // lnkPageB
+            // 
+            this.lnkPageB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageB.Location = new System.Drawing.Point(464, 313);
+            this.lnkPageB.Name = "lnkPageB";
+            this.lnkPageB.Size = new System.Drawing.Size(37, 20);
+            this.lnkPageB.TabIndex = 27;
+            this.lnkPageB.Values.Text = "2000";
+            this.lnkPageB.Visible = false;
+            this.lnkPageB.LinkClicked += new System.EventHandler(this.lnkPageB_LinkClicked);
+            // 
+            // lnkPageC
+            // 
+            this.lnkPageC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageC.Location = new System.Drawing.Point(507, 313);
+            this.lnkPageC.Name = "lnkPageC";
+            this.lnkPageC.Size = new System.Drawing.Size(37, 20);
+            this.lnkPageC.TabIndex = 28;
+            this.lnkPageC.Values.Text = "3000";
+            this.lnkPageC.Visible = false;
+            this.lnkPageC.LinkClicked += new System.EventHandler(this.lnkPageC_LinkClicked);
+            // 
+            // lnkPageD
+            // 
+            this.lnkPageD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageD.Location = new System.Drawing.Point(548, 313);
+            this.lnkPageD.Name = "lnkPageD";
+            this.lnkPageD.Size = new System.Drawing.Size(37, 20);
+            this.lnkPageD.TabIndex = 29;
+            this.lnkPageD.Values.Text = "4000";
+            this.lnkPageD.Visible = false;
+            this.lnkPageD.LinkClicked += new System.EventHandler(this.lnkPageD_LinkClicked);
+            // 
+            // lnkPageE
+            // 
+            this.lnkPageE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkPageE.Location = new System.Drawing.Point(586, 313);
+            this.lnkPageE.Name = "lnkPageE";
+            this.lnkPageE.Size = new System.Drawing.Size(37, 20);
+            this.lnkPageE.TabIndex = 30;
+            this.lnkPageE.Values.Text = "5000";
+            this.lnkPageE.Visible = false;
+            this.lnkPageE.LinkClicked += new System.EventHandler(this.lnkPageE_LinkClicked);
+            // 
+            // lnkNextPage
+            // 
+            this.lnkNextPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkNextPage.Location = new System.Drawing.Point(629, 313);
+            this.lnkNextPage.Name = "lnkNextPage";
+            this.lnkNextPage.Size = new System.Drawing.Size(36, 20);
+            this.lnkNextPage.TabIndex = 31;
+            this.lnkNextPage.Values.Text = "Next";
+            this.lnkNextPage.Visible = false;
+            this.lnkNextPage.LinkClicked += new System.EventHandler(this.lnkNextPage_LinkClicked);
+            // 
+            // lnkLastPage
+            // 
+            this.lnkLastPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkLastPage.Location = new System.Drawing.Point(666, 313);
+            this.lnkLastPage.Name = "lnkLastPage";
+            this.lnkLastPage.Size = new System.Drawing.Size(32, 20);
+            this.lnkLastPage.TabIndex = 32;
+            this.lnkLastPage.Values.Text = "Last";
+            this.lnkLastPage.Visible = false;
+            this.lnkLastPage.LinkClicked += new System.EventHandler(this.lnkLastPage_LinkClicked);
             // 
             // PagedDataGridView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.lnkLastPage);
             this.Controls.Add(this.lnkNextPage);
             this.Controls.Add(this.lnkPageE);
@@ -198,7 +180,7 @@
             this.Controls.Add(this.dgv);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "PagedDataGridView";
-            this.Size = new System.Drawing.Size(688, 353);
+            this.Size = new System.Drawing.Size(698, 350);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -206,17 +188,16 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.Label lblPageDescription;
-        private System.Windows.Forms.LinkLabel lnkLastPage;
-        private System.Windows.Forms.LinkLabel lnkNextPage;
-        private System.Windows.Forms.LinkLabel lnkPageE;
-        private System.Windows.Forms.LinkLabel lnkPageD;
-        private System.Windows.Forms.LinkLabel lnkPageC;
-        private System.Windows.Forms.LinkLabel lnkPageB;
-        private System.Windows.Forms.LinkLabel lnkPageA;
-        private System.Windows.Forms.LinkLabel lnkPreviousPage;
-        private System.Windows.Forms.LinkLabel lnkFirstPage;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView dgv;
+        private ComponentFactory.Krypton.Toolkit.KryptonLabel lblPageDescription;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lnkFirstPage;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lnkPreviousPage;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lnkPageA;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lnkPageB;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lnkPageC;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lnkPageD;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lnkPageE;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lnkNextPage;
+        private ComponentFactory.Krypton.Toolkit.KryptonLinkLabel lnkLastPage;
     }
 }

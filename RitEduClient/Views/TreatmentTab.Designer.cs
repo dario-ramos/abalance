@@ -33,12 +33,15 @@
             // 
             // pdgvTreatments
             // 
+            this.pdgvTreatments.BackColor = System.Drawing.SystemColors.Control;
             this.pdgvTreatments.DataSetId = null;
             this.pdgvTreatments.DefaultColumnSortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.pdgvTreatments.Location = new System.Drawing.Point(0, 3);
+            this.pdgvTreatments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdgvTreatments.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdgvTreatments.Location = new System.Drawing.Point(0, 0);
             this.pdgvTreatments.Name = "pdgvTreatments";
             this.pdgvTreatments.PageSize = 0;
-            this.pdgvTreatments.Size = new System.Drawing.Size(795, 454);
+            this.pdgvTreatments.Size = new System.Drawing.Size(798, 460);
             this.pdgvTreatments.TabIndex = 0;
             // 
             // TreatmentTab

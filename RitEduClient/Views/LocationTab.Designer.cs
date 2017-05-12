@@ -28,44 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pdgvLocations = new RitEduClient.PagedDataGridView();
+            this.kpnlLocations = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.kpnlLocations)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel1.Location = new System.Drawing.Point(27, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(733, 221);
-            this.panel1.TabIndex = 0;
             // 
             // pdgvLocations
             // 
+            this.pdgvLocations.BackColor = System.Drawing.SystemColors.Control;
             this.pdgvLocations.DataSetId = null;
             this.pdgvLocations.DefaultColumnSortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.pdgvLocations.Location = new System.Drawing.Point(12, 241);
+            this.pdgvLocations.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pdgvLocations.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdgvLocations.Location = new System.Drawing.Point(0, 194);
             this.pdgvLocations.Name = "pdgvLocations";
             this.pdgvLocations.PageSize = 0;
-            this.pdgvLocations.Size = new System.Drawing.Size(766, 204);
+            this.pdgvLocations.Size = new System.Drawing.Size(798, 266);
             this.pdgvLocations.TabIndex = 1;
+            // 
+            // kpnlLocations
+            // 
+            this.kpnlLocations.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kpnlLocations.Location = new System.Drawing.Point(0, 0);
+            this.kpnlLocations.Name = "kpnlLocations";
+            this.kpnlLocations.Size = new System.Drawing.Size(798, 188);
+            this.kpnlLocations.TabIndex = 2;
             // 
             // LocationTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.kpnlLocations);
             this.Controls.Add(this.pdgvLocations);
-            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "LocationTab";
             this.Size = new System.Drawing.Size(798, 460);
+            ((System.ComponentModel.ISupportInitialize)(this.kpnlLocations)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private PagedDataGridView pdgvLocations;
+        private ComponentFactory.Krypton.Toolkit.KryptonPanel kpnlLocations;
     }
 }

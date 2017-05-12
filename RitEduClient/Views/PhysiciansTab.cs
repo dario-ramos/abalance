@@ -15,6 +15,8 @@ namespace RitEduClient.Views
         public PhysicianTab()
         {
             InitializeComponent();
+            pdgvPhysicians.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            pdgvPhysicians.ReadOnly = true;
         }
 
         public int PageSize

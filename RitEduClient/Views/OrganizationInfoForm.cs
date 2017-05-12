@@ -1,12 +1,11 @@
-﻿using RitEduClient.Models;
+﻿using ComponentFactory.Krypton.Toolkit;
 using RitEduClient.Views;
 using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RitEduClient
 {
-    public partial class OrganizationInfoForm : Form, IOrganizationInfoView
+    public partial class OrganizationInfoForm : KryptonForm, IOrganizationInfoView
     {
         private int _orgId;
         private OrganizationInfoPresenter _presenter;

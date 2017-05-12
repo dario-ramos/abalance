@@ -33,12 +33,15 @@
             // 
             // pdgvPhysicians
             // 
+            this.pdgvPhysicians.BackColor = System.Drawing.SystemColors.Control;
             this.pdgvPhysicians.DataSetId = null;
             this.pdgvPhysicians.DefaultColumnSortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.pdgvPhysicians.Location = new System.Drawing.Point(0, 3);
+            this.pdgvPhysicians.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdgvPhysicians.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdgvPhysicians.Location = new System.Drawing.Point(0, 0);
             this.pdgvPhysicians.Name = "pdgvPhysicians";
             this.pdgvPhysicians.PageSize = 0;
-            this.pdgvPhysicians.Size = new System.Drawing.Size(795, 454);
+            this.pdgvPhysicians.Size = new System.Drawing.Size(798, 460);
             this.pdgvPhysicians.TabIndex = 0;
             // 
             // PhysicianTab

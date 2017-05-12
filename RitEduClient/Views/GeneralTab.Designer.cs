@@ -35,12 +35,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblGeneralInfoName = new System.Windows.Forms.Label();
             this.lblGeneralInfoDescription = new System.Windows.Forms.Label();
             this.lblGeneralInfoEmail = new System.Windows.Forms.Label();
             this.lblGeneralInfoWebsite = new System.Windows.Forms.Label();
             this.lblGeneralInfoNumMem = new System.Windows.Forms.Label();
             this.lblGeneralInfoNumCalls = new System.Windows.Forms.Label();
+            this.lblGeneralInfoName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,17 +145,6 @@
             this.label7.Text = "Number of Calls";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblGeneralInfoName
-            // 
-            this.lblGeneralInfoName.AutoSize = true;
-            this.lblGeneralInfoName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblGeneralInfoName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblGeneralInfoName.Location = new System.Drawing.Point(154, 0);
-            this.lblGeneralInfoName.Name = "lblGeneralInfoName";
-            this.lblGeneralInfoName.Size = new System.Drawing.Size(599, 20);
-            this.lblGeneralInfoName.TabIndex = 6;
-            this.lblGeneralInfoName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblGeneralInfoDescription
             // 
             this.lblGeneralInfoDescription.AutoSize = true;
@@ -211,6 +200,17 @@
             this.lblGeneralInfoNumCalls.TabIndex = 11;
             this.lblGeneralInfoNumCalls.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblGeneralInfoName
+            // 
+            this.lblGeneralInfoName.AutoSize = true;
+            this.lblGeneralInfoName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGeneralInfoName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblGeneralInfoName.Location = new System.Drawing.Point(154, 0);
+            this.lblGeneralInfoName.Name = "lblGeneralInfoName";
+            this.lblGeneralInfoName.Size = new System.Drawing.Size(599, 20);
+            this.lblGeneralInfoName.TabIndex = 6;
+            this.lblGeneralInfoName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GeneralTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,11 +234,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblGeneralInfoName;
         private System.Windows.Forms.Label lblGeneralInfoDescription;
         private System.Windows.Forms.Label lblGeneralInfoEmail;
         private System.Windows.Forms.Label lblGeneralInfoWebsite;
         private System.Windows.Forms.Label lblGeneralInfoNumMem;
         private System.Windows.Forms.Label lblGeneralInfoNumCalls;
+        private System.Windows.Forms.Label lblGeneralInfoName;
     }
 }

@@ -15,6 +15,8 @@ namespace RitEduClient.Views
         public PeopleTab()
         {
             InitializeComponent();
+            pdgvPeople.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            pdgvPeople.ReadOnly = true;
         }
 
         public int PageSize

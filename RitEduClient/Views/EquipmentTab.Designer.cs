@@ -33,12 +33,15 @@
             // 
             // pdgvEquipments
             // 
+            this.pdgvEquipments.BackColor = System.Drawing.SystemColors.Control;
             this.pdgvEquipments.DataSetId = null;
             this.pdgvEquipments.DefaultColumnSortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.pdgvEquipments.Location = new System.Drawing.Point(0, 3);
+            this.pdgvEquipments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdgvEquipments.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdgvEquipments.Location = new System.Drawing.Point(0, 0);
             this.pdgvEquipments.Name = "pdgvEquipments";
             this.pdgvEquipments.PageSize = 0;
-            this.pdgvEquipments.Size = new System.Drawing.Size(795, 454);
+            this.pdgvEquipments.Size = new System.Drawing.Size(798, 460);
             this.pdgvEquipments.TabIndex = 0;
             // 
             // EquipmentTab

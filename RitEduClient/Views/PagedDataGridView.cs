@@ -21,6 +21,21 @@ namespace RitEduClient
             InitializeComponent();
         }
 
+        public bool ReadOnly
+        {
+            set
+            {
+                dgv.ReadOnly = value;
+            }
+        }
+
+        public DataGridViewAutoSizeColumnsMode AutoSizeColumnsMode {
+            set
+            {
+                dgv.AutoSizeColumnsMode = value;
+            }
+        }
+
         public IPagedDataProvider PagedDataProvider { private get; set; }
 
         public DataGridViewColumnSortMode DefaultColumnSortMode { get; set; }
@@ -101,53 +116,53 @@ namespace RitEduClient
             CellContentClick?.Invoke(sender, e);
         }
 
-        private void lnkFirstPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkFirstPage_LinkClicked(object sender, EventArgs e)
         {
             SelectPage(1);
         }
 
-        private void lnkLastPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkLastPage_LinkClicked(object sender, EventArgs e)
         {
             int pageCount = GetPageCount(PagedDataProvider.GetRecordCount(DataSetId));
             SelectPage(pageCount);
         }
 
-        private void lnkNextPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkNextPage_LinkClicked(object sender, EventArgs e)
         {
             SelectPage(_currentPageIndex + 1);
         }
 
-        private void lnkPageA_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkPageA_LinkClicked(object sender, EventArgs e)
         {
             int pageIndex = int.Parse(lnkPageA.Text);
             SelectPage(pageIndex);
         }
 
-        private void lnkPageB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkPageB_LinkClicked(object sender, EventArgs e)
         {
             int pageIndex = int.Parse(lnkPageB.Text);
             SelectPage(pageIndex);
         }
 
-        private void lnkPageC_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkPageC_LinkClicked(object sender, EventArgs e)
         {
             int pageIndex = int.Parse(lnkPageC.Text);
             SelectPage(pageIndex);
         }
 
-        private void lnkPageD_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkPageD_LinkClicked(object sender, EventArgs e)
         {
             int pageIndex = int.Parse(lnkPageD.Text);
             SelectPage(pageIndex);
         }
 
-        private void lnkPageE_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkPageE_LinkClicked(object sender, EventArgs e)
         {
             int pageIndex = int.Parse(lnkPageE.Text);
             SelectPage(pageIndex);
         }
 
-        private void lnkPreviousPage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkPreviousPage_LinkClicked(object sender, EventArgs e)
         {
             SelectPage(_currentPageIndex - 1);
         }

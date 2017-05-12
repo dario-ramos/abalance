@@ -1,30 +1,22 @@
-﻿using RitEduClient.Entities;
+﻿using ComponentFactory.Krypton.Toolkit;
+using RitEduClient.Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace RitEduClient
 {
-    public partial class MainForm : Form, IOrganizationSearchView
+    public partial class MainForm : KryptonForm, IOrganizationSearchView
     {
         private OrganizationSearchPresenter _presenter;
 
         public MainForm()
         {
             InitializeComponent();
-            pdgvResults.CellContentClick += pdgvResults_CellContentClick;
+            pdgvResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             pdgvResults.DataSetId = Constants.ORGANIZATIONS_DATASET_ID;
             pdgvResults.DefaultColumnSortMode = DataGridViewColumnSortMode.Programmatic;
             pdgvResults.PageSize = 10;
+            pdgvResults.ReadOnly = true;
             pdgvResults.SetPageDescription("");
         }
 

@@ -15,6 +15,8 @@ namespace RitEduClient.Views
         public FacilityTab()
         {
             InitializeComponent();
+            pdgvFacilities.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            pdgvFacilities.ReadOnly = true;
         }
 
         public int PageSize

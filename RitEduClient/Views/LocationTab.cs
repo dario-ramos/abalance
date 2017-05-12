@@ -15,6 +15,8 @@ namespace RitEduClient.Views
         public LocationTab()
         {
             InitializeComponent();
+            pdgvLocations.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            pdgvLocations.ReadOnly = true;
         }
 
         public int PageSize

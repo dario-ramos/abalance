@@ -33,12 +33,15 @@
             // 
             // pdgvFacilities
             // 
+            this.pdgvFacilities.BackColor = System.Drawing.SystemColors.Control;
             this.pdgvFacilities.DataSetId = null;
             this.pdgvFacilities.DefaultColumnSortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.pdgvFacilities.Location = new System.Drawing.Point(0, 3);
+            this.pdgvFacilities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pdgvFacilities.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdgvFacilities.Location = new System.Drawing.Point(0, 0);
             this.pdgvFacilities.Name = "pdgvFacilities";
             this.pdgvFacilities.PageSize = 0;
-            this.pdgvFacilities.Size = new System.Drawing.Size(795, 454);
+            this.pdgvFacilities.Size = new System.Drawing.Size(798, 460);
             this.pdgvFacilities.TabIndex = 0;
             // 
             // FacilityTab
