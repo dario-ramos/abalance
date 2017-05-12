@@ -33,9 +33,17 @@ namespace RitEduClient
             {
                 pdgvResults.Clear();
                 pdgvResults.SetPageDescription("Searching...");
-                OrganizationType searchOrgType = (OrganizationType)cmbOrgType.SelectedItem;
+                OrganizationType searchOrgType = null;
+                if (cmbOrgType.SelectedIndex != 0)
+                {
+                    searchOrgType = (OrganizationType)cmbOrgType.SelectedItem;
+                }
                 string searchOrgName = txtOrgName.Text;
-                State searchState = (State)cmbState.SelectedItem;
+                State searchState = null;
+                if (cmbState.SelectedIndex != 0)
+                {
+                    searchState = (State)cmbState.SelectedItem;
+                }
                 City searchCity = (City)cmbCity.SelectedItem;
                 string searchCounty = txtCounty.Text;
                 string searchZip = txtZip.Text;
@@ -59,14 +67,12 @@ namespace RitEduClient
         {
             try
             {
-                cmbOrgType.SelectedIndex = -1;
-                cmbOrgType.Text = "-- select any value --";
-                cmbState.SelectedIndex = -1;
-                cmbState.Text = "-- select any value --";
+                cmbOrgType.SelectedIndex = 0;
+                cmbState.SelectedIndex = 0;
                 cmbCity.SelectedIndex = -1;
                 cmbCity.Items.Clear();
                 cmbCity.Enabled = false;
-                cmbCity.Text = "-- select any value --";
+                cmbCity.Text = "       ---- cities ----";
                 txtOrgName.Text = "";
                 txtCounty.Text = "";
                 txtZip.Text = "";
@@ -88,15 +94,19 @@ namespace RitEduClient
                 _presenter = new OrganizationSearchPresenter(this);
                 pdgvResults.PagedDataProvider = _presenter;
                 OrganizationTypeList orgTypes = _presenter.GetOrganizationTypes().Result;
+                cmbOrgType.Items.Add("All Organization Types");
                 foreach (OrganizationType orgType in orgTypes.OrganizationTypes)
                 {
                     cmbOrgType.Items.Add(orgType);
                 }
+                cmbOrgType.SelectedIndex = 0;
                 StateList states = _presenter.GetStates().Result;
+                cmbState.Items.Add("All States");
                 foreach (State state in states.States)
                 {
                     cmbState.Items.Add(state);
                 }
+                cmbState.SelectedIndex = 0;
             }
             catch (AggregateException aex)
             {
@@ -111,9 +121,15 @@ namespace RitEduClient
         private void cmbState_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
-            { 
-                if(cmbState.SelectedIndex < 0)
+            {
+                if (cmbState.SelectedIndex < 0)
                 {
+                    return;
+                }
+                if (cmbState.SelectedIndex == 0)
+                {
+                    cmbCity.Items.Clear();
+                    cmbCity.Text = "       ---- cities ----";
                     return;
                 }
                 cmbCity.Enabled = false;
@@ -124,7 +140,7 @@ namespace RitEduClient
                 {
                     cmbCity.Items.Add(city);
                 }
-                cmbCity.Text = "-- select any value --";
+                cmbCity.Text = "       ---- cities ----";
                 cmbCity.Enabled = true;
             }
             catch (AggregateException aex)

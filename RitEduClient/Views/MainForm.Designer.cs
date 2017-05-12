@@ -34,19 +34,19 @@
             this.kgbxMessageLog = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
             this.kryptonLabel1 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
             this.kbgxSearch = new ComponentFactory.Krypton.Toolkit.KryptonGroupBox();
-            this.cmbOrgType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cmbState = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.txtZip = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.cmbCity = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
-            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtOrgName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.txtCounty = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
-            this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
-            this.btnReset = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnReset = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kryptonLabel6 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtCounty = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel5 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtOrgName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel4 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cmbCity = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel3 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.txtZip = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
+            this.cmbState = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
+            this.kryptonLabel2 = new ComponentFactory.Krypton.Toolkit.KryptonLabel();
+            this.cmbOrgType = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.pdgvResults = new RitEduClient.PagedDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.kgbxMessageLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kgbxMessageLog.Panel)).BeginInit();
@@ -56,9 +56,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.kbgxSearch.Panel)).BeginInit();
             this.kbgxSearch.Panel.SuspendLayout();
             this.kbgxSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbOrgType)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOrgType)).BeginInit();
             this.SuspendLayout();
             // 
             // rtbMessageLog
@@ -121,94 +121,14 @@
             this.kbgxSearch.TabIndex = 81;
             this.kbgxSearch.Values.Heading = "Search";
             // 
-            // cmbOrgType
+            // btnSearch
             // 
-            this.cmbOrgType.DropDownWidth = 133;
-            this.cmbOrgType.Location = new System.Drawing.Point(136, 13);
-            this.cmbOrgType.Name = "cmbOrgType";
-            this.cmbOrgType.Size = new System.Drawing.Size(133, 21);
-            this.cmbOrgType.TabIndex = 0;
-            this.cmbOrgType.Text = "-- select any value --";
-            // 
-            // kryptonLabel2
-            // 
-            this.kryptonLabel2.Location = new System.Drawing.Point(19, 14);
-            this.kryptonLabel2.Name = "kryptonLabel2";
-            this.kryptonLabel2.Size = new System.Drawing.Size(111, 20);
-            this.kryptonLabel2.TabIndex = 1;
-            this.kryptonLabel2.Values.Text = "Organization Type";
-            // 
-            // cmbState
-            // 
-            this.cmbState.DropDownWidth = 133;
-            this.cmbState.Location = new System.Drawing.Point(136, 47);
-            this.cmbState.Name = "cmbState";
-            this.cmbState.Size = new System.Drawing.Size(133, 21);
-            this.cmbState.TabIndex = 2;
-            this.cmbState.Text = "-- select any value --";
-            this.cmbState.SelectedIndexChanged += new System.EventHandler(this.cmbState_SelectedIndexChanged);
-            // 
-            // txtZip
-            // 
-            this.txtZip.Location = new System.Drawing.Point(136, 82);
-            this.txtZip.Name = "txtZip";
-            this.txtZip.Size = new System.Drawing.Size(133, 23);
-            this.txtZip.TabIndex = 3;
-            // 
-            // kryptonLabel3
-            // 
-            this.kryptonLabel3.Location = new System.Drawing.Point(19, 47);
-            this.kryptonLabel3.Name = "kryptonLabel3";
-            this.kryptonLabel3.Size = new System.Drawing.Size(64, 20);
-            this.kryptonLabel3.TabIndex = 4;
-            this.kryptonLabel3.Values.Text = "State-City";
-            // 
-            // cmbCity
-            // 
-            this.cmbCity.DropDownWidth = 133;
-            this.cmbCity.Location = new System.Drawing.Point(286, 47);
-            this.cmbCity.Name = "cmbCity";
-            this.cmbCity.Size = new System.Drawing.Size(133, 21);
-            this.cmbCity.TabIndex = 5;
-            this.cmbCity.Text = "-- select any value --";
-            // 
-            // kryptonLabel4
-            // 
-            this.kryptonLabel4.Location = new System.Drawing.Point(19, 82);
-            this.kryptonLabel4.Name = "kryptonLabel4";
-            this.kryptonLabel4.Size = new System.Drawing.Size(28, 20);
-            this.kryptonLabel4.TabIndex = 6;
-            this.kryptonLabel4.Values.Text = "Zip";
-            // 
-            // txtOrgName
-            // 
-            this.txtOrgName.Location = new System.Drawing.Point(564, 13);
-            this.txtOrgName.Name = "txtOrgName";
-            this.txtOrgName.Size = new System.Drawing.Size(133, 23);
-            this.txtOrgName.TabIndex = 7;
-            // 
-            // kryptonLabel5
-            // 
-            this.kryptonLabel5.Location = new System.Drawing.Point(441, 14);
-            this.kryptonLabel5.Name = "kryptonLabel5";
-            this.kryptonLabel5.Size = new System.Drawing.Size(117, 20);
-            this.kryptonLabel5.TabIndex = 8;
-            this.kryptonLabel5.Values.Text = "Organization Name";
-            // 
-            // txtCounty
-            // 
-            this.txtCounty.Location = new System.Drawing.Point(564, 47);
-            this.txtCounty.Name = "txtCounty";
-            this.txtCounty.Size = new System.Drawing.Size(133, 23);
-            this.txtCounty.TabIndex = 9;
-            // 
-            // kryptonLabel6
-            // 
-            this.kryptonLabel6.Location = new System.Drawing.Point(508, 47);
-            this.kryptonLabel6.Name = "kryptonLabel6";
-            this.kryptonLabel6.Size = new System.Drawing.Size(50, 20);
-            this.kryptonLabel6.TabIndex = 10;
-            this.kryptonLabel6.Values.Text = "County";
+            this.btnSearch.Location = new System.Drawing.Point(508, 82);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(90, 25);
+            this.btnSearch.TabIndex = 12;
+            this.btnSearch.Values.Text = "Search";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnReset
             // 
@@ -219,14 +139,92 @@
             this.btnReset.Values.Text = "Reset";
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // btnSearch
+            // kryptonLabel6
             // 
-            this.btnSearch.Location = new System.Drawing.Point(508, 82);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(90, 25);
-            this.btnSearch.TabIndex = 12;
-            this.btnSearch.Values.Text = "Search";
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.kryptonLabel6.Location = new System.Drawing.Point(508, 47);
+            this.kryptonLabel6.Name = "kryptonLabel6";
+            this.kryptonLabel6.Size = new System.Drawing.Size(50, 20);
+            this.kryptonLabel6.TabIndex = 10;
+            this.kryptonLabel6.Values.Text = "County";
+            // 
+            // txtCounty
+            // 
+            this.txtCounty.Location = new System.Drawing.Point(564, 47);
+            this.txtCounty.Name = "txtCounty";
+            this.txtCounty.Size = new System.Drawing.Size(133, 23);
+            this.txtCounty.TabIndex = 9;
+            // 
+            // kryptonLabel5
+            // 
+            this.kryptonLabel5.Location = new System.Drawing.Point(441, 14);
+            this.kryptonLabel5.Name = "kryptonLabel5";
+            this.kryptonLabel5.Size = new System.Drawing.Size(117, 20);
+            this.kryptonLabel5.TabIndex = 8;
+            this.kryptonLabel5.Values.Text = "Organization Name";
+            // 
+            // txtOrgName
+            // 
+            this.txtOrgName.Location = new System.Drawing.Point(564, 13);
+            this.txtOrgName.Name = "txtOrgName";
+            this.txtOrgName.Size = new System.Drawing.Size(133, 23);
+            this.txtOrgName.TabIndex = 7;
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.Location = new System.Drawing.Point(19, 82);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(28, 20);
+            this.kryptonLabel4.TabIndex = 6;
+            this.kryptonLabel4.Values.Text = "Zip";
+            // 
+            // cmbCity
+            // 
+            this.cmbCity.DropDownWidth = 133;
+            this.cmbCity.Location = new System.Drawing.Point(296, 47);
+            this.cmbCity.Name = "cmbCity";
+            this.cmbCity.Size = new System.Drawing.Size(133, 21);
+            this.cmbCity.TabIndex = 5;
+            this.cmbCity.Text = "       ---- cities ----";
+            // 
+            // kryptonLabel3
+            // 
+            this.kryptonLabel3.Location = new System.Drawing.Point(19, 47);
+            this.kryptonLabel3.Name = "kryptonLabel3";
+            this.kryptonLabel3.Size = new System.Drawing.Size(64, 20);
+            this.kryptonLabel3.TabIndex = 4;
+            this.kryptonLabel3.Values.Text = "State-City";
+            // 
+            // txtZip
+            // 
+            this.txtZip.Location = new System.Drawing.Point(136, 82);
+            this.txtZip.Name = "txtZip";
+            this.txtZip.Size = new System.Drawing.Size(144, 23);
+            this.txtZip.TabIndex = 3;
+            // 
+            // cmbState
+            // 
+            this.cmbState.DropDownWidth = 133;
+            this.cmbState.Location = new System.Drawing.Point(136, 47);
+            this.cmbState.Name = "cmbState";
+            this.cmbState.Size = new System.Drawing.Size(144, 21);
+            this.cmbState.TabIndex = 2;
+            this.cmbState.SelectedIndexChanged += new System.EventHandler(this.cmbState_SelectedIndexChanged);
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.Location = new System.Drawing.Point(19, 14);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(111, 20);
+            this.kryptonLabel2.TabIndex = 1;
+            this.kryptonLabel2.Values.Text = "Organization Type";
+            // 
+            // cmbOrgType
+            // 
+            this.cmbOrgType.DropDownWidth = 133;
+            this.cmbOrgType.Location = new System.Drawing.Point(136, 13);
+            this.cmbOrgType.Name = "cmbOrgType";
+            this.cmbOrgType.Size = new System.Drawing.Size(144, 21);
+            this.cmbOrgType.TabIndex = 0;
             // 
             // pdgvResults
             // 
@@ -265,9 +263,9 @@
             this.kbgxSearch.Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kbgxSearch)).EndInit();
             this.kbgxSearch.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbOrgType)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbState)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbCity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbState)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbOrgType)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,7 +278,6 @@
         private PagedDataGridView pdgvResults;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private ComponentFactory.Krypton.Toolkit.KryptonGroupBox kbgxSearch;
-        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbOrgType;
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbState;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txtZip;
@@ -293,6 +290,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonLabel kryptonLabel6;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSearch;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnReset;
+        private ComponentFactory.Krypton.Toolkit.KryptonComboBox cmbOrgType;
     }
 }
 
